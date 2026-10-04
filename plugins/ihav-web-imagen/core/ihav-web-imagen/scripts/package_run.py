@@ -154,8 +154,12 @@ async def download_from_turn(page, receipt):
             raise ResearchError('download_identity_unverified', 'The opened viewer does not match the owned turn')
         await asyncio.sleep(0.25)
     control = page.get_by_role('button', name=DOWNLOAD)
-    if await control.count() != 1:
-        raise ResearchError('download_control_unverified', 'The viewer download control is ambiguous')
+    # The viewer's toolbar renders after its image (2026-10-04: not yet there when the pixels first matched).
+    deadline = time.monotonic() + 10
+    while await control.count() != 1:
+        if time.monotonic() >= deadline:
+            raise ResearchError('download_control_unverified', 'The viewer download control is ambiguous')
+        await asyncio.sleep(0.25)
     await save_original(page, control, receipt, expected,
                         Path(data.get('download_stem') or data['download_file']))
 
