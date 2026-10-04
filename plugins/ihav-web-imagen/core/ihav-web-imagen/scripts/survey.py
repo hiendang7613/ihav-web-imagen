@@ -2,6 +2,8 @@
 
     survey.py --site gemini            # one site
     survey.py --site all               # every site in sites.py, one after another
+    survey.py --site all --diff        # then compare each site with its previous survey (what changed around the composer)
+    survey.py --site gemini --diff-only   # compare the two newest surveys; no browser
 
 For each site it opens the chat page headless in the CloakBrowser profile, waits for the page to settle, and writes
 `<state>/survey/<site>/<timestamp>/survey.json` plus a screenshot: the final URL, sign-in and verification signs, composer
@@ -94,6 +96,39 @@ async def survey_one(browser, site: str, out_root: Path) -> dict:
             await page.close()
 
 
+def signature(record: dict) -> dict:
+    """What an adapter depends on: the composer, the controls beside it, the file inputs and the sign-in state."""
+    inventory = record.get('inventory') or {}
+    first = (inventory.get('composers') or [{}])[0]
+    control = lambda b: '|'.join(str(b.get(k) or '') for k in ('tag', 'aria_label', 'testid', 'text'))
+    composer = first.get('composer') or {}
+    return {
+        'final_url_path': (inventory.get('url') or '').split('?')[0],
+        'composer': control(composer) if composer else None,
+        'composer_controls': sorted({control(b) for b in first.get('buttons') or []}),
+        'file_inputs': len(first.get('file_inputs') or []) + len(inventory.get('file_inputs') or []),
+        'looks_signed_out': (record.get('summary') or {}).get('looks_signed_out'),
+        'challenge': (record.get('summary') or {}).get('challenge'),
+    }
+
+
+def diff(out_root: Path, site: str) -> dict:
+    """Compare the two newest surveys of a site. An empty `changes` means nothing an adapter relies on moved."""
+    runs = sorted((out_root / site).glob('*/survey.json'))
+    if len(runs) < 2:
+        return {'site': site, 'compared': False, 'reason': f'{len(runs)} survey(s) on disk; need two'}
+    old, new = (signature(json.loads(path.read_text())) for path in runs[-2:])
+    changes = {}
+    for key in new:
+        if key == 'composer_controls':
+            added, removed = sorted(set(new[key]) - set(old[key])), sorted(set(old[key]) - set(new[key]))
+            if added or removed:
+                changes[key] = {'added': added, 'removed': removed}
+        elif new[key] != old[key]:
+            changes[key] = {'before': old[key], 'after': new[key]}
+    return {'site': site, 'compared': True, 'before': runs[-2].parent.name, 'after': runs[-1].parent.name, 'changes': changes}
+
+
 async def survey(state: Path, names: list[str], out_root: Path) -> list[dict]:
     with profile_lock(state):
         browser = Browser(state, load_config(state))
@@ -113,16 +148,25 @@ def main(argv=None) -> int:
     parser.add_argument('--site', action='append', required=True, help='a site id from sites.py, or all; repeatable')
     parser.add_argument('--state-dir', type=Path, default=DEFAULT_STATE)
     parser.add_argument('--out', type=Path, default=None, help='default: <state>/survey')
+    parser.add_argument('--diff', action='store_true', help='after surveying, compare each site with its previous survey')
+    parser.add_argument('--diff-only', action='store_true', help='only compare the two newest surveys on disk; no browser')
     args = parser.parse_args(argv)
     try:
         names = sites.resolve(args.site)
     except ValueError as exc:
         parser.error(str(exc))
-    try:
-        asyncio.run(survey(args.state_dir, names, args.out or args.state_dir / 'survey'))
-    except ResearchError as exc:
-        print(json.dumps({'error': exc.code, 'message': str(exc), 'sent': False}))
-        return 2
+    out_root = args.out or args.state_dir / 'survey'
+    if not args.diff_only:
+        try:
+            asyncio.run(survey(args.state_dir, names, out_root))
+        except ResearchError as exc:
+            print(json.dumps({'error': exc.code, 'message': str(exc), 'sent': False}))
+            return 2
+    if args.diff or args.diff_only:
+        reports = [diff(out_root, site) for site in names]
+        for report in reports:
+            print(json.dumps(report))
+        return 3 if any(report.get('changes') for report in reports) else 0
     return 0
 
 

@@ -76,3 +76,34 @@ class SurveyTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class DiffTests(unittest.TestCase):
+    def write(self, root, stamp, labels, signed_out=False):
+        import survey  # noqa: F401
+        folder = root / 'site' / stamp
+        folder.mkdir(parents=True)
+        record = {'summary': {'looks_signed_out': signed_out, 'challenge': False},
+                  'inventory': {'url': 'https://x.test/app', 'file_inputs': [],
+                                'composers': [{'composer': {'tag': 'div', 'aria_label': 'Ask'}, 'file_inputs': [],
+                                               'buttons': [{'tag': 'button', 'aria_label': label} for label in labels]}]}}
+        (folder / 'survey.json').write_text(json.dumps(record))
+
+    def test_a_renamed_send_button_and_a_lost_session_are_reported(self):
+        import survey
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.write(root, '20261004T010000Z', ['Send prompt', 'Attach'])
+            self.write(root, '20261004T020000Z', ['Send', 'Attach'], signed_out=True)
+            report = survey.diff(root, 'site')
+        self.assertEqual(report['changes']['composer_controls'], {'added': ['button|Send||'], 'removed': ['button|Send prompt||']})
+        self.assertEqual(report['changes']['looks_signed_out'], {'before': False, 'after': True})
+
+    def test_one_survey_cannot_be_compared_and_an_unchanged_page_has_no_changes(self):
+        import survey
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.write(root, '20261004T010000Z', ['Send'])
+            self.assertFalse(survey.diff(root, 'site')['compared'])
+            self.write(root, '20261004T020000Z', ['Send'])
+            self.assertEqual(survey.diff(root, 'site')['changes'], {})
