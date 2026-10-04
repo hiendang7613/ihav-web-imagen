@@ -221,6 +221,7 @@ class PrepareTests(unittest.IsolatedAsyncioTestCase):
         browser, library, other = self.fakes()
         with patch.object(headless, 'library_page', AsyncMock(return_value=library)), \
                 patch.object(headless, 'composer_state', AsyncMock(return_value=('editor', 'scope', ''))), \
+                patch.object(headless, 'select_image_tool', AsyncMock()), \
                 patch.object(headless.asyncio, 'sleep', AsyncMock()):
             page, *_ = await headless.prepare(browser, popups=popups)
         return page, library, other

@@ -586,11 +586,44 @@ async def _prepare(browser, *, popups, phase):
         break
     phase['stage'] = 'composer_access'
     await browser.check_access(page, strict_alerts=False)
+    phase['stage'] = 'image_tool'
+    await select_image_tool(page)
     phase['stage'] = 'empty_image_composer'
     editor, scope, draft = await composer_state(page)
     if draft.strip():
         raise ResearchError('unexpected_draft', 'The existing draft was preserved')
     return page, editor, scope, baseline
+
+
+IMAGE_TOOL_MENU = 'button[aria-label="Add files and more"]'
+
+
+async def select_image_tool(page):
+    """Since 2026-10-04 the library's Create image opens a plain composer; pick Create image from its + menu.
+
+    Only a menu choice: nothing is typed or sent. When the composer already shows Create image (older UI), it does nothing.
+    """
+    editor = page.locator(EDITOR)
+    if not await editor.count():
+        return
+    scope = editor.first.locator('xpath=ancestor::form[1]')
+    if not await scope.count() or re.search(r'\bCreate image\b', await scope.first.inner_text()):
+        return
+    opener = page.locator(IMAGE_TOOL_MENU)
+    if not await opener.count():
+        return                                  # composer_state reports image_mode_unverified
+    await opener.first.click()
+    choice = page.get_by_text(re.compile(r'^Create image$'))
+    deadline = time.monotonic() + 8
+    while not await choice.count() and time.monotonic() < deadline:
+        await asyncio.sleep(0.25)
+    if await choice.count() != 1:
+        await page.keyboard.press('Escape')
+        return
+    await choice.click()
+    deadline = time.monotonic() + 8
+    while time.monotonic() < deadline and not re.search(r'\bCreate image\b', await scope.first.inner_text()):
+        await asyncio.sleep(0.25)
 
 
 async def submit_once(page, editor, scope, receipt, *, browser=None, stop=None):
