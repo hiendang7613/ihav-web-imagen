@@ -135,7 +135,8 @@ def report(payload: dict, code: int) -> tuple[list[str], int]:
     reason = payload.get('error') or run.get('error') or run.get('reason') or 'the run did not finish'
     state = run.get('send_state')
     lines = [f'No image saved: {reason}.']
-    if payload.get('retry_safe') is True or (not runs and payload.get('retry_safe', True)):
+    nothing_clicked = bool(runs) and state == 'not_sent' and not run.get('send_clicks')     # intent is written before the click
+    if payload.get('retry_safe') is True or nothing_clicked or (not runs and payload.get('retry_safe', True)):
         lines.append('  Nothing was sent, so running the same command again after fixing the cause is safe.')
     else:
         lines.append(f'  A request may already have been sent (send_state={state}). Do NOT run this again: that would be a second request.')
