@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (unreleased)
+## 0.2.0 (2026-10-04)
 
 - Dedicated runtime for macOS and Linux, replacing the maintainer-specific environment with a vendored rendered-UI adapter.
 - `runtime.py setup` creates a private environment with pinned dependencies and downloads CloakBrowser Chromium. `runtime.py login` opens manual sign-in; `runtime.py doctor` reports local installation state. None sends an image request.

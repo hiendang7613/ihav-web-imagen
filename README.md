@@ -184,7 +184,7 @@ $ihav-web-imagen:ihav-web-imagen a red fox in watercolor
 
 **Requirements:** Python 3.11+ with `venv`, macOS or Linux on a platform with a CloakBrowser binary, internet access, and a ChatGPT account with image access. Login needs a graphical display. The current adapter expects English UI; Windows is not supported.
 
-Prefer a shell installer? Read [`install.sh`](install.sh), then run `sh install.sh` from a clone. It calls the hosts' plugin commands; runtime setup remains separate. Remote install commands require access to the repository.
+Prefer a shell installer? Read [`install.sh`](install.sh), then run `sh install.sh` from a clone. It calls the hosts' plugin commands; runtime setup remains separate.
 
 See [How it works](docs/how-it-works.md#setup-and-sign-in) for exact setup commands from a clone.
 
