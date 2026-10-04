@@ -188,6 +188,7 @@ class PhaseTests(unittest.IsolatedAsyncioTestCase):
         receipt = headless.Receipt(Path(self.temporary.name) / 'multi/receipt.json')
         receipt.create('multi-run', prompt)
         editor = MagicMock(fill=AsyncMock(), inner_text=AsyncMock(return_value='HARD RULES\n\n1. Keep the bars\n\nsame thickness.'))
+        editor.evaluate = AsyncMock(side_effect=lambda *_: {'text': editor.inner_text.return_value, 'image_pill': False})
         send = MagicMock(is_enabled=AsyncMock(return_value=True), get_attribute=AsyncMock(return_value='false'), click=AsyncMock())
         with patch.object(headless, 'required', AsyncMock(return_value=send)):
             await headless.submit_once(MagicMock(url='https://chatgpt.com/'), editor, MagicMock(), receipt)
