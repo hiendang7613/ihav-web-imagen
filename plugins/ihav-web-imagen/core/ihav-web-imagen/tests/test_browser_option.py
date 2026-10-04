@@ -194,7 +194,7 @@ class CommandLineTests(Workspace):
         seen = []
 
         def fake(name):
-            async def login(state):
+            async def login(state, *urls):
                 seen.append((name, state))
                 return {'login_window_closed': True, 'browser': name}
             return login

@@ -2,6 +2,7 @@
 
     runtime.py setup                    # one time: a private venv with the pinned packages, and the CloakBrowser Chromium
     runtime.py login                    # one time: a visible browser window; sign in to ChatGPT yourself, then close it
+    runtime.py login --site all         # one tab per known web chat (see sites.py); sign in to the ones you use
     runtime.py login --browser chrome   # the same for plain Google Chrome in a profile of its own
     runtime.py doctor                   # what is installed and what is missing; changes nothing
 
@@ -93,13 +94,15 @@ def shlex_join(parts: list[str]) -> str:
     return ' '.join(shlex.quote(part) for part in parts)
 
 
-def login(state: Path, browser: str) -> int:
+def login(state: Path, browser: str, site: list[str] | None = None) -> int:
     python = venv_python(state)
     if not installed(python):
         raise SystemExit(f'Run setup first: {shlex_join([sys.executable, str(Path(__file__).resolve()), "setup"])}. Nothing was sent.')
     command = [str(python), str(SCRIPTS / 'headless.py'), 'login', '--state-dir', str(state)]
     if browser == 'chrome':
         command += ['--browser', 'chrome']
+    for name in site or []:
+        command += ['--site', name]
     return subprocess.run(command).returncode
 
 
@@ -131,11 +134,12 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('command', choices=('setup', 'login', 'doctor'))
     parser.add_argument('--browser', choices=('cloakbrowser', 'chrome'), default='cloakbrowser', help='login only')
+    parser.add_argument('--site', action='append', default=None, help='login only: a site id (chatgpt, gemini, lechat, qwen, grok, perplexity, metaai, zai, kimi) or all; repeatable')
     parser.add_argument('--state-dir', type=Path, default=None, help='default: see above')
     args = parser.parse_args(argv)
     state = (args.state_dir or default_state()).expanduser()
     if args.command == 'login':
-        return login(state, args.browser)
+        return login(state, args.browser, args.site)
     result = setup(state) if args.command == 'setup' else doctor(state)
     print(json.dumps(result, indent=2))
     return 0 if result.get('ready') or args.command == 'doctor' else 1

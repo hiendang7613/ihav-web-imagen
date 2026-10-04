@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import contextlib
 import fcntl
 import hashlib
 import json
@@ -23,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from chatgpt_web.browser import required
 from chatgpt_web.core import DEFAULT_STATE, ResearchError, atomic_write, json_bytes, load_config
 from chatgpt_web.host import profile_lock
+import sites
 from image_files import (BROWSER_KINDS, Browser, ChromeBrowser, DEFAULT_BROWSER, download_owned, remove_probe_attachments,
                          snapshot_references, upload_references, validate_attachment_order,
                          validate_reference_paths)
@@ -483,19 +485,24 @@ async def session(state, *, pause_idle_worker=False, accept_downloads=False, bro
             await browser.close()
 
 
-async def login_cloak(state):
-    """Sign in to ChatGPT once in the CloakBrowser profile: a visible window, closed by the user. Sends nothing."""
+async def login_cloak(state, urls=('https://chatgpt.com/',)):
+    """Sign in once in the CloakBrowser profile: one visible window, one tab per site, closed by the user. Sends nothing."""
     with profile_lock(state):
         browser = Browser(state, load_config(state))
         try:
             await browser.start(headless=False)
-            page = await browser.context.new_page()
-            await page.goto('https://chatgpt.com/', wait_until='domcontentloaded')
-            print(json.dumps({'login_window_open': True, 'browser': 'cloakbrowser',
-                              'instruction': 'Sign in manually, then close the browser window. No prompt will be sent.'}), flush=True)
+            for url in urls:
+                page = await browser.context.new_page()
+                with contextlib.suppress(Exception):          # a slow or blocked site must not stop the other tabs
+                    await page.goto(url, wait_until='domcontentloaded')
+            for blank in [p for p in browser.context.pages if p.url in ('about:blank', '')]:
+                with contextlib.suppress(Exception):
+                    await blank.close()
+            print(json.dumps({'login_window_open': True, 'browser': 'cloakbrowser', 'tabs': list(urls),
+                              'instruction': 'Sign in to each site you want to use, then close the browser window. No prompt will be sent.'}), flush=True)
             while browser.context.pages and any(not open_page.is_closed() for open_page in browser.context.pages):
                 await asyncio.sleep(1)
-            return {'login_window_closed': True, 'browser': 'cloakbrowser', 'login_verified': False,
+            return {'login_window_closed': True, 'browser': 'cloakbrowser', 'tabs': list(urls), 'login_verified': False,
                     'next': 'a --dry-run does not check sign-in; the first real run stops before any Send if you are not signed in'}
         finally:
             await browser.close()
@@ -919,6 +926,7 @@ def main():
     parser.add_argument('--pause-idle-worker', action='store_true', help=argparse.SUPPRESS)      # accepted for older commands; no effect
     parser.add_argument('--preview', action='store_true', help='Capture the UI for visual verification; do not download the original')
     parser.add_argument('--wait-seconds', type=float, default=600)
+    parser.add_argument('--site', action='append', default=None, help='login only (CloakBrowser): a site id from sites.py or all (default: chatgpt)')
     args = parser.parse_args()
     if not 0 <= args.wait_seconds <= 1200:
         parser.error('--wait-seconds must be between 0 and 1200')
@@ -935,9 +943,18 @@ def main():
     if args.browser and args.command not in {'probe', 'generate', 'login'}:
         parser.error('--browser is supported only for probe, generate and login: a run is resumed in the browser it was created with')
     if args.command == 'login':
-        login = login_chrome if args.browser == 'chrome' else login_cloak
+        if args.site and args.browser == 'chrome':
+            parser.error('--site is supported only for the CloakBrowser profile')
         try:
-            print(json.dumps(asyncio.run(login(args.state_dir)), indent=2))
+            chosen = sites.urls(sites.resolve(args.site or ['chatgpt']))
+        except ValueError as exc:
+            parser.error(str(exc))
+        try:
+            if args.browser == 'chrome':
+                result = asyncio.run(login_chrome(args.state_dir))
+            else:
+                result = asyncio.run(login_cloak(args.state_dir, chosen))
+            print(json.dumps(result, indent=2))
             return 0
         except ResearchError as exc:
             print(json.dumps({'error': exc.code, 'error_kind': classify_error(exc.code)}))
