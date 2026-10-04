@@ -834,9 +834,17 @@ async def finish_run(browser, page, receipt, args, generation_started):
         raise
     if completed:
         await verify_library(browser, page, receipt)
-        if download_requested(receipt.data) and receipt.data.get('library_verified'):
-            download_page = await library_page(browser)
-            await download_owned(download_page, receipt, VIEWER_FINGERPRINTS)
+        if download_requested(receipt.data) and not receipt.data.get('downloaded'):
+            # The owned turn's own viewer first, the route a first run uses (pixel identity checked); the library card only
+            # as a fallback, since its matching is the less stable part of the UI (2026-10-04). Never a Send.
+            import package_run
+            try:
+                await package_run.download_from_turn(page, receipt)
+            except ResearchError:
+                if not receipt.data.get('library_verified'):
+                    raise
+                download_page = await library_page(browser)
+                await download_owned(download_page, receipt, VIEWER_FINGERPRINTS)
     if args.preview:
         # UI capture for verification, never the downloadable original asset.
         target = receipt.path.parent / 'preview.png'
