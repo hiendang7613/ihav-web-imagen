@@ -265,6 +265,14 @@ class ReviewFixesTests(unittest.TestCase):
         command = next(line for line in lines if 'headless.py' in line).split(': ', 1)[1]
         self.assertEqual(shlex.split(command)[1], '/tmp/a folder/scripts/headless.py')
 
+    def test_a_run_stopped_before_its_intent_says_nothing_was_sent(self):
+        # 2026-10-04 real run: the library page had changed, so it stopped before the composer; send_clicks 0.
+        run = {'run_id': 'r', 'send_state': 'not_sent', 'send_clicks': 0, 'reason': 'library_unavailable'}
+        lines, code = imagine.report({'runs': [run], 'retry_safe': False}, 2)
+        self.assertEqual(code, 2)
+        self.assertIn('Nothing was sent', '\n'.join(lines))
+        self.assertNotIn('Do NOT run this again', '\n'.join(lines))
+
     def test_a_saved_image_is_never_reported_as_no_image_saved(self):
         run = {'run_id': 'r', 'send_state': 'confirmed', 'downloaded': True, 'library_verified': False, 'reason': 'library_identity_unverified',
                'original_file': {'path': '/work/fox.png', 'dimensions': [64, 48]}}

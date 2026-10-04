@@ -501,10 +501,14 @@ async def login_cloak(state):
             await browser.close()
 
 
+# The Images library's new-image control: "New" until 2026-10, "Create image" in the 2026-10-04 survey.
+NEW_IMAGE = re.compile(r'^(?:New|Create image)$')
+
+
 async def library_page(browser):
     page = await browser.context.new_page()
     await page.goto(LIBRARY, wait_until='domcontentloaded')
-    await required(page.get_by_role('button', name='New', exact=True), 'library_unavailable', timeout=45)
+    await required(page.get_by_role('button', name=NEW_IMAGE), 'library_unavailable', timeout=45)
     await browser.check_access(page, strict_alerts=False)
     creations = await required(page.get_by_role('tab', name='Your creations', exact=True), 'creations_tab_unavailable')
     if await creations.get_attribute('aria-selected') == 'false':
@@ -561,7 +565,7 @@ async def _prepare(browser, *, popups, phase):
     baseline = await library.locator('main img').evaluate_all(IMAGE_RECORDS)
     before = set(browser.context.pages)
     phase['stage'] = 'new_image_chat'
-    await library.get_by_role('button', name='New', exact=True).click()
+    await library.get_by_role('button', name=NEW_IMAGE).click()
     # New has been observed to navigate this page; capture a popup as well when
     # a UI version creates one. Only task-owned pages are considered.
     deadline = time.monotonic() + 60
@@ -747,7 +751,7 @@ async def verify_library(browser, page, receipt):
             return
         # Re-enter the normal library; never edit, delete, or download a card.
         await library.goto(LIBRARY, wait_until='domcontentloaded')
-        await required(library.get_by_role('button', name='New', exact=True), 'library_unavailable')
+        await required(library.get_by_role('button', name=NEW_IMAGE), 'library_unavailable')
         creations = await required(library.get_by_role('tab', name='Your creations', exact=True), 'creations_tab_unavailable')
         if await creations.get_attribute('aria-selected') == 'false':
             await creations.click()
