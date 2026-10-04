@@ -68,7 +68,7 @@ async def one(locator, code, *, timeout=15.0):
 
 async def check_signed_in(page):
     if 'accounts.google.com' in page.url:
-        raise ResearchError('signed_out', 'Gemini redirected to Google sign-in; run runtime.py login --site gemini')
+        raise ResearchError('login_required', 'Gemini redirected to Google sign-in; run runtime.py login --site gemini')
     await one(page.locator(EDITOR), 'composer_unavailable', timeout=30)
 
 
@@ -206,7 +206,7 @@ async def run(args):
     state = args.state_dir
     receipt = receipt_for(state, args.run_id)
     if args.command == 'status':
-        return receipt.summary() if receipt.data else {'error': 'run_not_found'}
+        return receipt.summary() if receipt.data else {'error': 'run_missing'}
     async with headless.session(state, accept_downloads=True) as browser:
         page = await browser.context.new_page()
         if args.command == 'generate':
@@ -219,10 +219,10 @@ async def run(args):
             await submit(page, receipt)
         else:
             if not receipt.data:
-                raise ResearchError('run_not_found', 'No receipt for this run id')
+                raise ResearchError('run_missing', 'No receipt for this run id')
             url = receipt.data.get('chat_url')
             if not url:
-                raise ResearchError('chat_url_unknown', 'The run has no saved Gemini chat to observe; nothing will be sent')
+                raise ResearchError('recovery_url_missing', 'The run has no saved Gemini chat to observe; nothing will be sent')
             receipt.update(recovered=True)
             await page.goto(url, wait_until='domcontentloaded')
             await check_signed_in(page)
