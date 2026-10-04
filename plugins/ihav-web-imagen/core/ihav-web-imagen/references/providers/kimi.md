@@ -7,7 +7,7 @@ Snapshot: **2026-10-04**. See [evidence labels and status scope](index.md).
 ## Entry and access
 
 - **C — Chat URL:** https://www.kimi.com/
-- **I — Login entry URL:** https://www.kimi.com/ ; inferred application entry. **U:** dedicated auth route and redirects.
+- **Login entry URL:** https://www.kimi.ai/ , chosen by the maintainer on 2026-10-04 for `runtime.py login` and `survey.py`. **U:** how it relates to www.kimi.com and dedicated auth routes.
 - **C — Constraints:** plugins vary by domestic/international, personal/enterprise and platform surface; some require third-party authorization. **C:** legacy terms require registration/real-name verification. **U:** current international applicability.
 - **C — Limits:** membership docs describe shared credits and image-generation benefits. **U:** image-plugin plan entitlement and numeric daily quota.
 

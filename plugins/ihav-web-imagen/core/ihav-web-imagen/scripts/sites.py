@@ -14,7 +14,7 @@ SITES = {
     'perplexity': ('Perplexity', ('https://www.perplexity.ai/',)),
     'metaai': ('Meta AI', ('https://www.meta.ai/',)),
     'zai': ('Z.ai', ('https://chat.z.ai/', 'https://image.z.ai/')),
-    'kimi': ('Kimi', ('https://www.kimi.com/',)),
+    'kimi': ('Kimi', ('https://www.kimi.ai/',)),
 }
 ADAPTERS = ('chatgpt',)
 
