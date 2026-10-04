@@ -1,0 +1,1346 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-09-30",
+  "method": "read-only relevant-source inspection; fetched files are not exhaustive review or runtime validation",
+  "repository_count": 20,
+  "repositories": [
+    {
+      "repository": "Vieeeeeee/gpt-web-image",
+      "commit": "99ebf632bcf4fc1fe9c3a67bc0fafae469ca36cd",
+      "primary_inspected_path": "browser-flow.mjs",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 2643,
+          "sha256": "63f1dcca48390d95ac8d8560374815a3d6e46eaa8068586b378bb193ab473964",
+          "source": "https://github.com/Vieeeeeee/gpt-web-image/blob/99ebf632bcf4fc1fe9c3a67bc0fafae469ca36cd/README.md"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 4994,
+          "sha256": "c8692a851e4a44826b2a1a700db357de2009e42fd298d8ba90c428845dfc12b7",
+          "source": "https://github.com/Vieeeeeee/gpt-web-image/blob/99ebf632bcf4fc1fe9c3a67bc0fafae469ca36cd/SKILL.md"
+        },
+        {
+          "path": "browser-flow.mjs",
+          "bytes": 8675,
+          "sha256": "e76fdde8c4b09fe0522da3fbec7aaf3ed87cbac87e9a6ae2530b650d77a18247",
+          "source": "https://github.com/Vieeeeeee/gpt-web-image/blob/99ebf632bcf4fc1fe9c3a67bc0fafae469ca36cd/browser-flow.mjs"
+        }
+      ]
+    },
+    {
+      "repository": "leeguooooo/image-use",
+      "commit": "3ac373644f6086a2379ca5e6761cfe9ee972087a",
+      "primary_inspected_path": "image-use",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 11082,
+          "sha256": "2d60c9b522e8cd223799443b446e7c19fb44596ac8cb0d451bc030dc8c1b3f09",
+          "source": "https://github.com/leeguooooo/image-use/blob/3ac373644f6086a2379ca5e6761cfe9ee972087a/README.md"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 44423,
+          "sha256": "30e128996ca449ac6c6faab8fa295fe504c89a772b503489607039eff432bf16",
+          "source": "https://github.com/leeguooooo/image-use/blob/3ac373644f6086a2379ca5e6761cfe9ee972087a/SKILL.md"
+        },
+        {
+          "path": "image-use",
+          "bytes": 295464,
+          "sha256": "e0c2532db35ff8ba3cf493d9484753eb15751817725e6fafb8c91f59d64088c7",
+          "source": "https://github.com/leeguooooo/image-use/blob/3ac373644f6086a2379ca5e6761cfe9ee972087a/image-use"
+        },
+        {
+          "path": "docs/how-it-works.md",
+          "bytes": 4987,
+          "sha256": "d01313a70bd32145ff452f13ddadde6f7e23f0f7928860ce59355e82dbfa61f1",
+          "source": "https://github.com/leeguooooo/image-use/blob/3ac373644f6086a2379ca5e6761cfe9ee972087a/docs/how-it-works.md"
+        },
+        {
+          "path": "test_image_use.py",
+          "bytes": 175223,
+          "sha256": "97493802dc0ac92962e0c60ab11f06a6a7f2b579a9e160f2657a28debf5da307",
+          "source": "https://github.com/leeguooooo/image-use/blob/3ac373644f6086a2379ca5e6761cfe9ee972087a/test_image_use.py"
+        }
+      ]
+    },
+    {
+      "repository": "amzbase-com/chatgpt-automation-extension",
+      "commit": "62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe",
+      "primary_inspected_path": "README.md",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 13037,
+          "sha256": "3eec93fefc1954f0d82f9467afacc13c13f6768ac367e441f1a55fdaba0f0a98",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/README.md"
+        },
+        {
+          "path": "i18n/README_af.md",
+          "bytes": 13588,
+          "sha256": "6b3693034a6c6e303ffb7bd3be4901a351d74d8f64c9a57800c15c1cc5e6f1cf",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_af.md"
+        },
+        {
+          "path": "i18n/README_ar.md",
+          "bytes": 20030,
+          "sha256": "c65e54659ead72c520ba883baef2eddaaeae6ac3852b30fedc7fbedc628b4ffa",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_ar.md"
+        },
+        {
+          "path": "i18n/README_az.md",
+          "bytes": 16014,
+          "sha256": "8ab8e807795b95894f1dd952c2c4ce9c4d2bafc221168631b0a39bab960d702b",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_az.md"
+        },
+        {
+          "path": "i18n/README_ca.md",
+          "bytes": 15245,
+          "sha256": "9cf541a249ff8c4b5e1c11e429abe5992b600c32663befc754e37f921e85ecc7",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_ca.md"
+        },
+        {
+          "path": "i18n/README_cs.md",
+          "bytes": 14705,
+          "sha256": "c8d16c0a2039e63faceb6c3b80f31f27cf6efb49f93ed442487a9c53c5698cd1",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_cs.md"
+        },
+        {
+          "path": "i18n/README_cy.md",
+          "bytes": 14273,
+          "sha256": "e7fb0208060e8ce866bbe73605e873675a63b1cc08b76c231c0334ec9968e259",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_cy.md"
+        },
+        {
+          "path": "i18n/README_da.md",
+          "bytes": 13933,
+          "sha256": "e09acf04c2e86530ac82b07533b43870e7c81db984b737adab639b39c221000f",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_da.md"
+        },
+        {
+          "path": "i18n/README_de.md",
+          "bytes": 14226,
+          "sha256": "4092eba795f09052fb757f73f802596527fba106006d768554a8784b65cf2331",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_de.md"
+        },
+        {
+          "path": "i18n/README_el.md",
+          "bytes": 24254,
+          "sha256": "9376cd76501b7d45acde46b7b347d22cdc82f86ede24710ebcc56b80484ceb69",
+          "source": "https://github.com/amzbase-com/chatgpt-automation-extension/blob/62d232e823b54ca967cbbd8d0dfdc2536c9ec3fe/i18n/README_el.md"
+        }
+      ]
+    },
+    {
+      "repository": "Hawkynt/ImageGen",
+      "commit": "93825fcd1b30f5789b2be759b47527be370e2560",
+      "primary_inspected_path": "src/backends/chatgpt-backend.ts",
+      "license_metadata": "LGPL-3.0",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 7652,
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 28094,
+          "sha256": "3b355211be2a10aa74eab719bb41b9145a5e8c7a20db57c165ac25662fdfc523",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 630,
+          "sha256": "1de141d1b8c0e9b2788b43272cd8e73cd8918520e141cb124c81dd8a05a106c9",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/package.json"
+        },
+        {
+          "path": "src/backends/browser-backend-base.ts",
+          "bytes": 12989,
+          "sha256": "f242097ea6fd265b56f6e5769457f08e847265af071a5babd6580e67f8768520",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/backends/browser-backend-base.ts"
+        },
+        {
+          "path": "src/index.ts",
+          "bytes": 2696,
+          "sha256": "782c39e81dc76662a58b6a0a9c235028f8d3c44a5ae2917f7a9a0129ba204d44",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/index.ts"
+        },
+        {
+          "path": "src/debug/logger.ts",
+          "bytes": 2008,
+          "sha256": "0f09bdd02ea457182f0d0b8bc30ff8b09fc8dba2fe12bc1a8d3aa8d72c8ad583",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/debug/logger.ts"
+        },
+        {
+          "path": "src/domain/prompt.ts",
+          "bytes": 642,
+          "sha256": "e79896ff20e9be81c1e51143eebe64a33e513b7cbf047905a9411e21fde7ded1",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/domain/prompt.ts"
+        },
+        {
+          "path": "src/domain/image-input.ts",
+          "bytes": 920,
+          "sha256": "b23f14e26259ed694218224ce4c70b1bb8313bf4322cd585cd3e4bc00a0e9ae7",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/domain/image-input.ts"
+        },
+        {
+          "path": "src/core/generation-job.ts",
+          "bytes": 2280,
+          "sha256": "853e6fb5cdb527efe1f9d3b3e2909b4c373dbcc602b82d9115fe638a674fda8a",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/core/generation-job.ts"
+        },
+        {
+          "path": "src/backends/local-backend.ts",
+          "bytes": 20983,
+          "sha256": "a801a719389eb7cc4f251a9be129b37f4199b6d758b4f30963760b8fb8731e1f",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/backends/local-backend.ts"
+        },
+        {
+          "path": "src/backends/chatgpt-backend.ts",
+          "bytes": 18291,
+          "sha256": "2fbbc248a72607b2fdbac8cbf1f947cfe707ad34167e4192ba16a83aea4cce51",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/backends/chatgpt-backend.ts"
+        },
+        {
+          "path": "src/backends/element-discovery.ts",
+          "bytes": 12884,
+          "sha256": "e969f6d2f23819faa0cecc880a1063b27a92640d7189d99c85b3248dcbd5314d",
+          "source": "https://github.com/Hawkynt/ImageGen/blob/93825fcd1b30f5789b2be759b47527be370e2560/src/backends/element-discovery.ts"
+        }
+      ]
+    },
+    {
+      "repository": "lownamlee/gpt-image-2-mcp",
+      "commit": "9240da04df2ab7df3e9fb3926125648aa5ed20f7",
+      "primary_inspected_path": "src/backends/chatgptWeb.ts",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1068,
+          "sha256": "2f1c1fef1aaa1f8730c000df23fb9a76878662575923b580c278615ef8dfdf16",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 7899,
+          "sha256": "276380aab43445bdc7a06ffcaaaa6dcb751f3c1ae17d283cf2b11c22bbc299fd",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 1045,
+          "sha256": "37a0e992ce9ee28560cee475386250904319537324d0e40ddc81700ee1255842",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/package.json"
+        },
+        {
+          "path": "src/index.ts",
+          "bytes": 7376,
+          "sha256": "ef31051fb0d60120134c5cde99ae7d4fbbf889e045bec61be726b3622284a01c",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/index.ts"
+        },
+        {
+          "path": "src/config.ts",
+          "bytes": 3280,
+          "sha256": "4c9e850c9023f4311b6e8c8ca9048315b389dfa8b0d87e74f9cbed20d05210c1",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/config.ts"
+        },
+        {
+          "path": "src/output.ts",
+          "bytes": 1935,
+          "sha256": "3455ac146156ce55ee3beb042ffd16996fa93221f2a52ac4896925751b4aa97d",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/output.ts"
+        },
+        {
+          "path": "src/backends/api.ts",
+          "bytes": 3470,
+          "sha256": "7c609cda72b0fc90f1987c93fd71b7daec199ee8f878fba87250d920e9caea3d",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/backends/api.ts"
+        },
+        {
+          "path": "src/backends/types.ts",
+          "bytes": 1188,
+          "sha256": "4e933ef74cd0ff5771740fea4ab5c4410d062bf9a627d07801e642783c49b42b",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/backends/types.ts"
+        },
+        {
+          "path": "src/backends/resolve.ts",
+          "bytes": 1481,
+          "sha256": "8477657e2cc8e1bf20e134e40bb53fd36f9053f7e64bd879bdd19e61a2a839a8",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/backends/resolve.ts"
+        },
+        {
+          "path": "src/backends/chatgptWeb.ts",
+          "bytes": 42236,
+          "sha256": "85d98757f57fc3e732d4573a2aed9659b02cb5b40b81273e2a69aa279cd442c8",
+          "source": "https://github.com/lownamlee/gpt-image-2-mcp/blob/9240da04df2ab7df3e9fb3926125648aa5ed20f7/src/backends/chatgptWeb.ts"
+        }
+      ]
+    },
+    {
+      "repository": "leeguooooo/chatgpt-use",
+      "commit": "2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134",
+      "primary_inspected_path": "src/receipt.rs",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "sha256": "e297a60ea1ffc0c371f9d120ac3cde0fa56904708f8c6498ea5d07194214cb70",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/LICENSE"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 3552,
+          "sha256": "c702f0a00c878df5d8be4b67a5034cbf0441fadd04fc0a1de74cca6a591316ed",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/SKILL.md"
+        },
+        {
+          "path": "README.md",
+          "bytes": 48342,
+          "sha256": "aad70d0b7fff99c35b951d5767cf06fe1ab491b4bdc50d8a23d04ef32076f3d0",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/README.md"
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 2598,
+          "sha256": "4d637890f8c72aaa04c8e0500017aa306afa6285686655ec3b34ca437068c4ac",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/main.rs"
+        },
+        {
+          "path": "src/cli.rs",
+          "bytes": 12514,
+          "sha256": "3365ac180a80bd5b18483ec4d9185bbed8be7b58dfc42d9193583d5ba8780b19",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/cli.rs"
+        },
+        {
+          "path": "src/oauth.rs",
+          "bytes": 21083,
+          "sha256": "2259f417c83eb48e85b338e1239d47c5f42a5fe7f1124949d4be6ecca0b875a4",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/oauth.rs"
+        },
+        {
+          "path": "src/tools.rs",
+          "bytes": 51861,
+          "sha256": "3bcab8448134af2217c59231c6f09532a990b43e4c982578f3c84df3880d5a6d",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/tools.rs"
+        },
+        {
+          "path": "src/ledger.rs",
+          "bytes": 2440,
+          "sha256": "e0ba8ba0d4651e87c14b7f684fd5edcbfb5322b5007fbca039610cb8b9f2697c",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/ledger.rs"
+        },
+        {
+          "path": "src/update.rs",
+          "bytes": 15677,
+          "sha256": "626329333ca0aa1274cd043b8a316bf1be98ec162b9d8a4212e1231bf4063e6e",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/update.rs"
+        },
+        {
+          "path": "src/channel.rs",
+          "bytes": 150095,
+          "sha256": "3a93f81f7485de4d2a16c14946ea6ab57d5e4fc6835deef0a528dc7d3abc7640",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/channel.rs"
+        },
+        {
+          "path": "src/protocol.rs",
+          "bytes": 16691,
+          "sha256": "c67ca435a6ab771032b4bf0fb163b67172958f7c658d2494335e8c48e1dabade",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/protocol.rs"
+        },
+        {
+          "path": "src/receipt.rs",
+          "bytes": 9092,
+          "sha256": "0827e5ffe41e1ccf5ae4eaf2b5f90cfe1ce8edd02f44aa4dafd965ff929d66bd",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/receipt.rs"
+        },
+        {
+          "path": "src/cmd/ask.rs",
+          "bytes": 11224,
+          "sha256": "623371e2d1f70e0dc9099af3968bb791ea6ad3351d62bd8b1d82223a1756f033",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/cmd/ask.rs"
+        },
+        {
+          "path": "src/cmd/run.rs",
+          "bytes": 5845,
+          "sha256": "b43054e2d654334df709753461d5d73fdf7101dd0d1fda4e271f1f3e5c4d9530",
+          "source": "https://github.com/leeguooooo/chatgpt-use/blob/2e4bd0aa3ebf3dc46a927c7a6c5914a31b907134/src/cmd/run.rs"
+        }
+      ]
+    },
+    {
+      "repository": "jessedi0n/openai-chatgpt-chrome-extension",
+      "commit": "4f76838a07034cb1329304d6893a4773da4fb3ee",
+      "primary_inspected_path": "background.js",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1066,
+          "sha256": "192d76d335bcd022812f3e5232f692983cb0cd15a7049d471ed7250444a2d894",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 2725,
+          "sha256": "e353b43b256526f2293c1fab8853b329f08a86edf7a45e26726c06d209a9582b",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/README.md"
+        },
+        {
+          "path": "background.js",
+          "bytes": 41285,
+          "sha256": "86dd2326eb928c69bc1faa11b29b92f0d6083c9e10f1e04bea43b1f456c8b155",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/background.js"
+        },
+        {
+          "path": "vendor/highlight/LICENSE",
+          "bytes": 1514,
+          "sha256": "6c081431591d9df696c82dc598fe1423765b8a299b200ed00b281afd0f64c490",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/vendor/highlight/LICENSE"
+        },
+        {
+          "path": "models.js",
+          "bytes": 15757,
+          "sha256": "847d65e8c6878bfa445e8c283518088ddf5558682a80d9b22ff687790fa8f775",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/models.js"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 719,
+          "sha256": "1949e99ebfd1e4202d0ab613b8614e3293beed75c023a516b55129c7b2122f9e",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/manifest.json"
+        },
+        {
+          "path": "popup/popup.js",
+          "bytes": 100068,
+          "sha256": "3af3c52a907f72a9653551647df3901a6e4c3c7526e112a1628d2128c29ce282",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/popup/popup.js"
+        },
+        {
+          "path": "options/options.js",
+          "bytes": 18943,
+          "sha256": "3d59ab42c3fc4dd1625b2599cd3c3adea78720c0d0292c7c8a8749fe419d25b7",
+          "source": "https://github.com/jessedi0n/openai-chatgpt-chrome-extension/blob/4f76838a07034cb1329304d6893a4773da4fb3ee/options/options.js"
+        }
+      ]
+    },
+    {
+      "repository": "i6ww/gpt2api",
+      "commit": "928094d53a4ed5031b56c23779287b48b9e7be3e",
+      "primary_inspected_path": "backend/internal/provider/gpt/gpt.go",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 9064,
+          "sha256": "39d53f396bdd651d988a7b69bdc1c1eeda56a3ba257508fb07bd0248a425f052",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/README.md"
+        },
+        {
+          "path": "backend/cmd/api/main.go",
+          "bytes": 874,
+          "sha256": "51e6e18f090e1a0ba330f5b526300acf77e7afcc2150da11a882bcc5b7e415fb",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/api/main.go"
+        },
+        {
+          "path": "backend/cmd/admin/main.go",
+          "bytes": 891,
+          "sha256": "7aae534203f8b29e9885e72a53b69b065645b222e75c42b89d7633cd3855e2b1",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/admin/main.go"
+        },
+        {
+          "path": "backend/cmd/agent/main.go",
+          "bytes": 28708,
+          "sha256": "25d5cc2ef96d4fd592cd70390257f185253c12d752ef7803c1e69a647104e5ac",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/agent/main.go"
+        },
+        {
+          "path": "backend/cmd/openai/main.go",
+          "bytes": 957,
+          "sha256": "b2544af3efa707816ff2109255001d343df865ea5e2b324519764d55dc789016",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/openai/main.go"
+        },
+        {
+          "path": "backend/cmd/worker/main.go",
+          "bytes": 2915,
+          "sha256": "1015808e7adceabd110a5f4b081f8b60b34d867b81f44af786628aca210b554f",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/worker/main.go"
+        },
+        {
+          "path": "deploy/docs/MAIN_DEPLOY.md",
+          "bytes": 12026,
+          "sha256": "272b7673ba7c7a71c901143ff7fb08f747beff9dbbfbec903ad8c2aa1ba8dcb4",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/deploy/docs/MAIN_DEPLOY.md"
+        },
+        {
+          "path": "backend/cmd/xaiseed/main.go",
+          "bytes": 2850,
+          "sha256": "fe20a9ac4999bbda8e8682fdb406054d25bd475ffdd4584300abe029bc9e7886",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/xaiseed/main.go"
+        },
+        {
+          "path": "backend/cmd/xaitest/main.go",
+          "bytes": 1855,
+          "sha256": "caeccd9213eee1f2e45e304901aa5faf95fbb6ebe417f629a5d5a9de9314b353",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/cmd/xaitest/main.go"
+        },
+        {
+          "path": "backend/pkg/httpc/client.go",
+          "bytes": 816,
+          "sha256": "9bf53adbc74205e13ff34667ee2ed581588134cf1e062dde4ddfbdb8105b7f4b",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/pkg/httpc/client.go"
+        },
+        {
+          "path": "backend/internal/provider/gpt/gpt.go",
+          "bytes": 86438,
+          "sha256": "7d76a98a5f5ff315faac265dfd8090ccd025d0893fdaa771c61d2450e174af17",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/internal/provider/gpt/gpt.go"
+        },
+        {
+          "path": "backend/internal/provider/gpt/web_protocol.go",
+          "bytes": 4149,
+          "sha256": "941c8c0f419682950c3f2a0b2b6c1804e3e2947c135a7d71a066d82c1174cfdd",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/internal/provider/gpt/web_protocol.go"
+        },
+        {
+          "path": "backend/internal/provider/gpt/codex_chat.go",
+          "bytes": 15435,
+          "sha256": "bcbbe40afbeb6e8376410d2e7efc14a16d6f9876133116fad6878dd33d801dde",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/internal/provider/gpt/codex_chat.go"
+        },
+        {
+          "path": "backend/internal/regkit/dispatcher/gpt/sentinel.go",
+          "bytes": 10570,
+          "sha256": "492b287847866bc3e18b687377ee0e8c321439bef82663e3d47db5d84e54940b",
+          "source": "https://github.com/i6ww/gpt2api/blob/928094d53a4ed5031b56c23779287b48b9e7be3e/backend/internal/regkit/dispatcher/gpt/sentinel.go"
+        }
+      ]
+    },
+    {
+      "repository": "almeidasrenato/codex-image-skills",
+      "commit": "0acbf30ee5677515576229618530aa6a4f1c5d60",
+      "primary_inspected_path": "scripts/gerar.py",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1077,
+          "sha256": "4f6b27636dfa187f9a3b8cbc8649923a7b8d9626cdd0eca7afed9ef68460bd6d",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 5030,
+          "sha256": "13d7903dc9ec166592f87f85daf4f1d73bda3d984ec8dfd1f76cce25e1b35959",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/README.md"
+        },
+        {
+          "path": "scripts/gerar.py",
+          "bytes": 20322,
+          "sha256": "82883d4bbda834ba3817e7663266e4a730a51335fd333909929f303728b83001",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/scripts/gerar.py"
+        },
+        {
+          "path": "scripts/update_models.py",
+          "bytes": 14163,
+          "sha256": "a87f9fbf6a4affc92709c5af39f85a37c09e7e9c4938d73f6687816987b734cc",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/scripts/update_models.py"
+        },
+        {
+          "path": "skills/codex-image/SKILL.md",
+          "bytes": 6995,
+          "sha256": "d3d83ac90edeb8038193a8d226297e36e9a7ed34be6232355ec242580ada8896",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/skills/codex-image/SKILL.md"
+        },
+        {
+          "path": "skills/codex-image-auto/SKILL.md",
+          "bytes": 4155,
+          "sha256": "f1ec93aa79e159244ce5cc0615c8730bc238332357950192965da7e888354a71",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/skills/codex-image-auto/SKILL.md"
+        },
+        {
+          "path": "skills/codex-image-project/SKILL.md",
+          "bytes": 4444,
+          "sha256": "bb63a3ffe7d1a7f645cbebfd12287eb94b1524f64efafa459dd0dab21496c0ef",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/skills/codex-image-project/SKILL.md"
+        },
+        {
+          "path": "skills/codex-update-models/SKILL.md",
+          "bytes": 17458,
+          "sha256": "888cc12190bd10f1ed17092476d87e619e052a9bc1eb797384fea774cc5011b0",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/skills/codex-update-models/SKILL.md"
+        },
+        {
+          "path": "install.sh",
+          "bytes": 682,
+          "sha256": "b0aa4ec7c2ff892807f1d5b6e5d5149a388b030e4c7506069b459eec48f003e3",
+          "source": "https://github.com/almeidasrenato/codex-image-skills/blob/0acbf30ee5677515576229618530aa6a4f1c5d60/install.sh"
+        }
+      ]
+    },
+    {
+      "repository": "gustavoleitao/image-describer",
+      "commit": "d31091f21c12d1274151f4e11a56fa354ea3512c",
+      "primary_inspected_path": "gptService.js",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 1959,
+          "sha256": "3f8f7a05b748897b223d46bc52b24ee12d40985291e18a3476270817e89937a2",
+          "source": "https://github.com/gustavoleitao/image-describer/blob/d31091f21c12d1274151f4e11a56fa354ea3512c/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 661,
+          "sha256": "d1046e53cb3e222d3b2b448b8512cb9caf68ccf0ec09de4dcd3121538a864844",
+          "source": "https://github.com/gustavoleitao/image-describer/blob/d31091f21c12d1274151f4e11a56fa354ea3512c/package.json"
+        },
+        {
+          "path": "cli.js",
+          "bytes": 2860,
+          "sha256": "fb30c96763f57085cdcc9b3d2e5dafd0ec63ec9b1eef6c0d27f5b75ebad5be18",
+          "source": "https://github.com/gustavoleitao/image-describer/blob/d31091f21c12d1274151f4e11a56fa354ea3512c/cli.js"
+        },
+        {
+          "path": "bootstrap.js",
+          "bytes": 55,
+          "sha256": "aa9972ed48c38fb17ed5ea795280e6ca1e14a7f1b6fd58f0fc32c69c8c4204ff",
+          "source": "https://github.com/gustavoleitao/image-describer/blob/d31091f21c12d1274151f4e11a56fa354ea3512c/bootstrap.js"
+        },
+        {
+          "path": "gptService.js",
+          "bytes": 1421,
+          "sha256": "5af8aa34f3f4ca188480156da4a0739037ef1ede9f0162d1d81e8aeab7b5e0b8",
+          "source": "https://github.com/gustavoleitao/image-describer/blob/d31091f21c12d1274151f4e11a56fa354ea3512c/gptService.js"
+        }
+      ]
+    },
+    {
+      "repository": "StartripAI/gpt-image-2.0-workbench",
+      "commit": "7aea816d5bb3a52d72c023d884837ca986e1c84a",
+      "primary_inspected_path": "docs/chatgpt-web-mode.md",
+      "license_metadata": "Apache-2.0",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 11359,
+          "sha256": "cd503e2855f5cf1fc419d0f09798a5ef77ada9e2cf3be6f8146cb8e84ca5f23e",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 38498,
+          "sha256": "de4705a8b9e9aba1058c2e10e9462e92439221785d85e583f652a4d9c44eeef8",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 2034,
+          "sha256": "07e3c2a6406033e24a9e234efd236cb57f53c81a97b9ce6b613a02a6f32967b6",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/pyproject.toml"
+        },
+        {
+          "path": "templates/pet/DOMAIN_CARD.md",
+          "bytes": 1311,
+          "sha256": "a58b23a5aba6380bb0bf6e1a783ca8bed658d8f01ce8ab3b7f8adc57544d3b96",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/pet/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/food/DOMAIN_CARD.md",
+          "bytes": 1367,
+          "sha256": "af70cf173bfc4db84e13c2b6e7a4dba0bc7419a8800703d643a6426ee00afedb",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/food/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/music/DOMAIN_CARD.md",
+          "bytes": 1455,
+          "sha256": "2d07bff197965d30410486a4819694f4c43e58e46048815d5478b28cd5bbdb2b",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/music/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/beauty/DOMAIN_CARD.md",
+          "bytes": 1273,
+          "sha256": "2b719e767ee90305c52b1d02361857876fd673fb134a4904f7c32c8a696d4314",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/beauty/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/events/DOMAIN_CARD.md",
+          "bytes": 1316,
+          "sha256": "1d8b915a373faab474e8ace54dc7cb01e20a75e1a3483bfd9bdc1dbd81394604",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/events/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/gaming/DOMAIN_CARD.md",
+          "bytes": 1154,
+          "sha256": "8067ce58c2f2c8bc3f1620a30e7f48af58a0198565c787666c625e09c32035a8",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/gaming/DOMAIN_CARD.md"
+        },
+        {
+          "path": "templates/tattoo/DOMAIN_CARD.md",
+          "bytes": 1272,
+          "sha256": "076ccc39aaf55e7519e6e5d8544196d63aa840b7179a15370cd1a1f15377bf1d",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/templates/tattoo/DOMAIN_CARD.md"
+        },
+        {
+          "path": "docs/chatgpt-web-mode.md",
+          "bytes": 5229,
+          "sha256": "38513129587f80c996b566129446d82984c328520b8c58c3fa0501c911b686f8",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/docs/chatgpt-web-mode.md"
+        },
+        {
+          "path": "src/image2_workbench/ledger.py",
+          "bytes": 8265,
+          "sha256": "706e1b775995fe2bec4f6340066b99d25d2d4b0dd8d339687195c6af9e924f2f",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/src/image2_workbench/ledger.py"
+        },
+        {
+          "path": "src/image2_workbench/runtimes/preflight.py",
+          "bytes": 9333,
+          "sha256": "f29dc9b67d35140a4c1f6286fff171f24fca16fccbe78fe428897e4d7212cb0d",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/src/image2_workbench/runtimes/preflight.py"
+        },
+        {
+          "path": "src/image2_workbench/runtimes/images_api.py",
+          "bytes": 12207,
+          "sha256": "93e84796e36173d8738e3dc1dd85f2eefddb07a945b9a5511b6ba97aeef12de3",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/src/image2_workbench/runtimes/images_api.py"
+        },
+        {
+          "path": "src/image2_workbench/runtimes/responses_api.py",
+          "bytes": 4069,
+          "sha256": "74a4ba6503ce35dd023220b2dd62d212d46b7896009cabf4726ff04686a10b1f",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/src/image2_workbench/runtimes/responses_api.py"
+        },
+        {
+          "path": "src/image2_workbench/runtimes/batch_api.py",
+          "bytes": 12335,
+          "sha256": "abb2c59888ad71f00c63c3ef64542f0ef73a4f84e7f6453d91fb113af53fee3b",
+          "source": "https://github.com/StartripAI/gpt-image-2.0-workbench/blob/7aea816d5bb3a52d72c023d884837ca986e1c84a/src/image2_workbench/runtimes/batch_api.py"
+        }
+      ]
+    },
+    {
+      "repository": "oakplank/gpt-image-bridge",
+      "commit": "5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc",
+      "primary_inspected_path": "skills/gpt-image-bridge/bin/gpt-image-2",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1062,
+          "sha256": "49e3f6a2f5ccab022e971c0ccfbf38d377a54d7629205d007bdc498e81d67139",
+          "source": "https://github.com/oakplank/gpt-image-bridge/blob/5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 8469,
+          "sha256": "2e453a222abf6c398af7c414b3d9c9ceac646886822d68f501636a22be4a93ea",
+          "source": "https://github.com/oakplank/gpt-image-bridge/blob/5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc/README.md"
+        },
+        {
+          "path": "skills/gpt-image-bridge/SKILL.md",
+          "bytes": 4088,
+          "sha256": "580ce000b498291d53a62f4ff89009f510c1a82102aeaeb272a5e65e9d177ce7",
+          "source": "https://github.com/oakplank/gpt-image-bridge/blob/5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc/skills/gpt-image-bridge/SKILL.md"
+        },
+        {
+          "path": "install.sh",
+          "bytes": 1435,
+          "sha256": "d19dc16d4bc0ddf54f549288edf0cb234dc7d7f09f691971b8f867803b05a265",
+          "source": "https://github.com/oakplank/gpt-image-bridge/blob/5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc/install.sh"
+        },
+        {
+          "path": "skills/gpt-image-bridge/bin/gpt-image-2",
+          "bytes": 3379,
+          "sha256": "1631291fe46320bcf75789b0ac614a10b40c42dca533845d8f296b87e4f9dd0c",
+          "source": "https://github.com/oakplank/gpt-image-bridge/blob/5c49f1a36d91ba411b5cec96859cd0a3f0a5c2dc/skills/gpt-image-bridge/bin/gpt-image-2"
+        }
+      ]
+    },
+    {
+      "repository": "yuji-hatakeyama/opencode-gpt-imagegen",
+      "commit": "4ee90581b4f541b9ba3b26c485dcbd09d3789087",
+      "primary_inspected_path": "src/codex.ts",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1072,
+          "sha256": "eeb51c90cdaacdcb9afd6cca15d007526c75b548c67f015389afad8029e8b7f2",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4941,
+          "sha256": "9e055eec96864d34c76a6fdcec0a5b86e5a493c3d15012945a572248a4d6b63f",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 2046,
+          "sha256": "bb9d668d84e351f1e7ae5fa88309e68b62452ab4f3c8c17854e73d6c565b0f8f",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/package.json"
+        },
+        {
+          "path": "src/auth.ts",
+          "bytes": 1130,
+          "sha256": "afb6871b05a205bdfe243f7fbde8fad6dada9292c5f6392280c82820b432732d",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/auth.ts"
+        },
+        {
+          "path": "src/codex.ts",
+          "bytes": 3405,
+          "sha256": "fdf3e47ca43700ffaa7db7dce791c4eacddbf023628eb22ce36a531b0dedf4fc",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/codex.ts"
+        },
+        {
+          "path": "src/index.ts",
+          "bytes": 3234,
+          "sha256": "86a53df38d7ad5ddd877676f8a66c32d75ffe3322a7fe291fdb3b81e49fb5c87",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/index.ts"
+        },
+        {
+          "path": "src/types.ts",
+          "bytes": 310,
+          "sha256": "94ee9a3b630d52939c00642195594e11c5e707dcad1c091d4afacf1423aaddb7",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/types.ts"
+        },
+        {
+          "path": "src/input-image.ts",
+          "bytes": 946,
+          "sha256": "ef4bc9ca620d0794673c7eb04fb55924e5b0ca402a602478f0e0ed5af5028f79",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/input-image.ts"
+        },
+        {
+          "path": "src/output-image.ts",
+          "bytes": 2211,
+          "sha256": "09dd4fe86ed0afcb9bb8946414ee612afe8c4d29b33167fa12cd5a78351612eb",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/src/output-image.ts"
+        },
+        {
+          "path": "scripts/prepare-release.sh",
+          "bytes": 1923,
+          "sha256": "429b6aca0383c4adba0aa53e2827692f14eae2c53695fd29509ae52dda4b9b32",
+          "source": "https://github.com/yuji-hatakeyama/opencode-gpt-imagegen/blob/4ee90581b4f541b9ba3b26c485dcbd09d3789087/scripts/prepare-release.sh"
+        }
+      ]
+    },
+    {
+      "repository": "faborsky/gpt-image-app",
+      "commit": "6804de399bd09887b375d89b0c33ab1a2ad334f4",
+      "primary_inspected_path": "gptimage/generator.py",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1079,
+          "sha256": "64e666bba9b2ebe083619d9da5dbc2a833721b481b504ffe203086069f920339",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 19639,
+          "sha256": "5c677b5af5f76c5cf2128a43feddede9ebacf8963d69fe244b222485b496b01a",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 1344,
+          "sha256": "8ab60112742518861015fb50dfdfc83a28a0a413f6c14d6f6c433b0acb260100",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/pyproject.toml"
+        },
+        {
+          "path": "skill/gptimage/SKILL.md",
+          "bytes": 15667,
+          "sha256": "4d260dcbd06d385a1743fa07444f8380d5055f95c53225a3563ffd78dfedde75",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/skill/gptimage/SKILL.md"
+        },
+        {
+          "path": "tests/test_batch.py",
+          "bytes": 9658,
+          "sha256": "8669700c82ec4c5fe5654f31b9b724347213219a8d868d2497de34ffab1fba8a",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/tests/test_batch.py"
+        },
+        {
+          "path": "tests/test_config.py",
+          "bytes": 11756,
+          "sha256": "c4a3acb899b99220e4441cb26b9ee8fa2b5522c5bfcb94f0f0067d28c3e3be5e",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/tests/test_config.py"
+        },
+        {
+          "path": "run.sh",
+          "bytes": 331,
+          "sha256": "f104d458ee9991c95212b18373ce92340b01948421ed0bde9aa6a6c64da6aa96",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/run.sh"
+        },
+        {
+          "path": "setup.sh",
+          "bytes": 1111,
+          "sha256": "87e744ff8123b3d5ad367122823e40eb9c33f10a95c8a8bcd3b7112e380d2d81",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/setup.sh"
+        },
+        {
+          "path": "CLAUDE.md",
+          "bytes": 6450,
+          "sha256": "7de087aff9fe5c0be9845d68b2702fd1cba9b05cc1e79a6a8d3cc3052d6efb49",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/CLAUDE.md"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "bytes": 11289,
+          "sha256": "d1cb4d90c445bf69b5a2dc3a8e8764a367db177221b8260b23be241bcd8ca4c9",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/CHANGELOG.md"
+        },
+        {
+          "path": "gptimage/generator.py",
+          "bytes": 10017,
+          "sha256": "3f572e379775650f6611c7f3583ac49404389547c1b2117a9a33e6022ba78af6",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/gptimage/generator.py"
+        },
+        {
+          "path": "gptimage/config.py",
+          "bytes": 16648,
+          "sha256": "731eca1e4961ff9f4e9e4e6b5b5d95722371afc5b7124345b7e7eda6b66081ae",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/gptimage/config.py"
+        },
+        {
+          "path": "gptimage/utils.py",
+          "bytes": 1875,
+          "sha256": "6917127875a6bb3aa6d964bc0cb92757ddc495a8970c85f47dc9148508b9a371",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/gptimage/utils.py"
+        },
+        {
+          "path": "gptimage/cli.py",
+          "bytes": 14142,
+          "sha256": "5d9524a502a9c5f43ead4dbd412ca5ded774705fbbd2f172df79f8907dad5184",
+          "source": "https://github.com/faborsky/gpt-image-app/blob/6804de399bd09887b375d89b0c33ab1a2ad334f4/gptimage/cli.py"
+        }
+      ]
+    },
+    {
+      "repository": "labeveryday/gpt-image-mcp",
+      "commit": "8a09c8d77e717c94799ec81f458aeeefd6c8a2e6",
+      "primary_inspected_path": "src/gpt_image_mcp/image_generator.py",
+      "license_metadata": null,
+      "fetched_files": [
+        {
+          "path": "README.md",
+          "bytes": 18690,
+          "sha256": "a83155770e6d8a782bfffd66ebc1bc48157dea0ed618a42ecf4e0a7bc58578fa",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 2732,
+          "sha256": "c991696d668b2168495a59e3fecd83037789b3d979984b6c8115ab02d0692265",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/pyproject.toml"
+        },
+        {
+          "path": "src/gpt_image_mcp/server.py",
+          "bytes": 28589,
+          "sha256": "1c0866c8cd0f2d6c8e18e45fca35ac1e41d10ce34b0de99183b15fc37c515270",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/src/gpt_image_mcp/server.py"
+        },
+        {
+          "path": "src/gpt_image_mcp/__init__.py",
+          "bytes": 249,
+          "sha256": "933b7f4634604ef7bb3b1a02cef1ddd30433bf8b0265301cb17b012e6c859308",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/src/gpt_image_mcp/__init__.py"
+        },
+        {
+          "path": "src/gpt_image_mcp/image_generator.py",
+          "bytes": 28452,
+          "sha256": "2f4b55869ea938d11eb0b9d19f71ea9e019aa05be48531c1932ba056c5d6c2aa",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/src/gpt_image_mcp/image_generator.py"
+        },
+        {
+          "path": "src/gpt_image_mcp/config.py",
+          "bytes": 5692,
+          "sha256": "87c4968f1f1daaffb1fa2890335d0f7f9f5e6107af20d76c4370c91563caf6ea",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/src/gpt_image_mcp/config.py"
+        },
+        {
+          "path": "src/gpt_image_mcp/file_manager.py",
+          "bytes": 3520,
+          "sha256": "f30db105b8bcfb89e0a2fc7174001b402a7159a6247693253a4f618aa13659dd",
+          "source": "https://github.com/labeveryday/gpt-image-mcp/blob/8a09c8d77e717c94799ec81f458aeeefd6c8a2e6/src/gpt_image_mcp/file_manager.py"
+        }
+      ]
+    },
+    {
+      "repository": "warshanks/gpt_image_pipe",
+      "commit": "80156f6d098304800a585b9de760718b99455233",
+      "primary_inspected_path": "gpt_image_pipe.py",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1066,
+          "sha256": "c584eab4610a10d6deadf3d7cfcbab543147a050a7140087ce8415033e9b74f8",
+          "source": "https://github.com/warshanks/gpt_image_pipe/blob/80156f6d098304800a585b9de760718b99455233/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 7927,
+          "sha256": "de04201ee6cf232afd1d059a358046a08ffc9f66f3ee9f382002b3c96ed143c8",
+          "source": "https://github.com/warshanks/gpt_image_pipe/blob/80156f6d098304800a585b9de760718b99455233/README.md"
+        },
+        {
+          "path": "tests/test_gpt_image_pipe.py",
+          "bytes": 21489,
+          "sha256": "dd07e448ca6b324729ddc6f84e10da68b5192cc4051f1555dea88a45ca8d9fbb",
+          "source": "https://github.com/warshanks/gpt_image_pipe/blob/80156f6d098304800a585b9de760718b99455233/tests/test_gpt_image_pipe.py"
+        },
+        {
+          "path": "gpt_image_pipe.py",
+          "bytes": 29641,
+          "sha256": "37516f0af33bec35b2eaa39061a819bf19b3843595115b4640d8f4091414f336",
+          "source": "https://github.com/warshanks/gpt_image_pipe/blob/80156f6d098304800a585b9de760718b99455233/gpt_image_pipe.py"
+        }
+      ]
+    },
+    {
+      "repository": "feedtailor/ccskill-gptimage",
+      "commit": "bb7b8d2cab08dbf44272ffc8079d4fd254faee41",
+      "primary_inspected_path": "generate_image.py",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1072,
+          "sha256": "eb595ef80992e875486d0ddc56e10eba9ae4288ff257030f46438b84efe3367f",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 10337,
+          "sha256": "2dd4e3698c0f1e9c4e9ae60f13c78680794b01a77f2d2d0f8acb35bc62d8e690",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/README.md"
+        },
+        {
+          "path": "generate_image.py",
+          "bytes": 32085,
+          "sha256": "2b43d85e2d1efd2943a7facdb0bc8ce7fbd5054a47794ce4550e110e93d2e4f6",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/generate_image.py"
+        },
+        {
+          "path": ".claude/skills/ccskill-gptimage/SKILL.md",
+          "bytes": 19650,
+          "sha256": "f16ca3b0c91a46309cbc8c7cb7bb1751e120e31f3a590313a1caffebf9723a01",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/.claude/skills/ccskill-gptimage/SKILL.md"
+        },
+        {
+          "path": ".claude/skills/ccskill-gptimage/prompts/README.md",
+          "bytes": 3725,
+          "sha256": "3100e17320ddca221f48e13afa69011a01a119e3a1e01d2f08a0f7829c4c9014",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/.claude/skills/ccskill-gptimage/prompts/README.md"
+        },
+        {
+          "path": "tests/test_browse.py",
+          "bytes": 2622,
+          "sha256": "5e8202f5c1d1675e68fea32133183e7671030089b4d0e38af5fb61bc3c639230",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/tests/test_browse.py"
+        },
+        {
+          "path": "tests/test_doctor.py",
+          "bytes": 5695,
+          "sha256": "662f1a57c3cb0fd467dde0c96649f8178d8f65b947be2619695ead69793bdbe7",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/tests/test_doctor.py"
+        },
+        {
+          "path": "tests/test_install.py",
+          "bytes": 5960,
+          "sha256": "0595e161bc47ba7567f977ca0d9e1d298f2ae693325fdf676d5c9d6db983401f",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/tests/test_install.py"
+        },
+        {
+          "path": "tests/test_generate_image.py",
+          "bytes": 49180,
+          "sha256": "02683d4ea27a3748c407723e2325f89feac37792153ff0f75bd9cb8ba895ea4c",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/tests/test_generate_image.py"
+        },
+        {
+          "path": "CLAUDE.md",
+          "bytes": 13221,
+          "sha256": "c3040a15b27e4aefc751015836f19a638e2b957b847887c1046944e7101aff66",
+          "source": "https://github.com/feedtailor/ccskill-gptimage/blob/bb7b8d2cab08dbf44272ffc8079d4fd254faee41/CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "repository": "Connected-Mate/gptimage",
+      "commit": "49273481195c9795a4b6dc47b28549139c977025",
+      "primary_inspected_path": "src/codex.js",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1076,
+          "sha256": "61b266ab51f12f1352bc72d2817474832fb8de9313b50b1ba5d7b014570b7bef",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4418,
+          "sha256": "1f1f5e8dc7743104a0b72dea33991f8346afcaa95a75b9359d83405d898e7d3a",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 734,
+          "sha256": "06fec29755154c088945fc9525e3dd0b4318e75417eeb605b2b96ffc9651edab",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/package.json"
+        },
+        {
+          "path": "src/server.js",
+          "bytes": 4025,
+          "sha256": "094067bfd1428907b8d0d04569083cb9011283d36ad57c99b9d215e3e495df27",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/server.js"
+        },
+        {
+          "path": "src/gen.js",
+          "bytes": 1860,
+          "sha256": "c6d0f48d3e039b49192eec03389714e77c511111010f5fe3f7f4b26bed698413",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/gen.js"
+        },
+        {
+          "path": "src/auth.js",
+          "bytes": 7465,
+          "sha256": "eb029fa64c8fddebc48bddde4847f8f1236fdcdfb12273e79dccce0276d969c6",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/auth.js"
+        },
+        {
+          "path": "src/codex.js",
+          "bytes": 4418,
+          "sha256": "5f370bcf2c767cf638f32d1ab87f9d65cb0c769faf8b358337b7e6b35fc6e588",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/codex.js"
+        },
+        {
+          "path": "src/login.js",
+          "bytes": 9602,
+          "sha256": "4abc4dc0cd785a11655a9453e33ab0aa4967384ccf00b7133602984ef604958e",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/login.js"
+        },
+        {
+          "path": "src/banner.js",
+          "bytes": 567,
+          "sha256": "ccbc76ef6b3cb17e06dd1d2341264d43022d7ff3e5c9ce045e09ccfa6fe7412d",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/banner.js"
+        },
+        {
+          "path": "src/images.js",
+          "bytes": 2666,
+          "sha256": "33e3f5a044fc22e67dd7f520c6283037eb59d6a6c7cecee542f5efd90ea1cd11",
+          "source": "https://github.com/Connected-Mate/gptimage/blob/49273481195c9795a4b6dc47b28549139c977025/src/images.js"
+        }
+      ]
+    },
+    {
+      "repository": "kymuco/gptty",
+      "commit": "93288f88ffbacf304f5bd161030e79fbf2ca486c",
+      "primary_inspected_path": "src/gptty/sdk_client.py",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1063,
+          "sha256": "0dcc3e1750e36661e1b85a5e797545d567c2e57ef627a7ad6bbe65785c00e53e",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 12251,
+          "sha256": "896ce4f4cbb47cd0f0ff20bdba84a4d00ed5318e17c2e4d3c819bdba8f5d1044",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 1527,
+          "sha256": "617a0320f5dbd3aa04d9b45c9b32e76678840aedd3138d7a19ff3e85857d5747",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/pyproject.toml"
+        },
+        {
+          "path": "main.py",
+          "bytes": 74589,
+          "sha256": "38ceecefd876417e064a131305b2bfec23a7e55945a28b9db703c23a9a337385",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/main.py"
+        },
+        {
+          "path": "src/gptty/__main__.py",
+          "bytes": 116,
+          "sha256": "9db74feb31653aa7028ab831a0843a1e259585d87b5119b918e5abe7f1309819",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/__main__.py"
+        },
+        {
+          "path": "src/gptty/sdk_client.py",
+          "bytes": 2861,
+          "sha256": "4af2ae4e887000e437cdd696f0324e7e61a7708a24fe74e4f5b6c2c1f841d75b",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/sdk_client.py"
+        },
+        {
+          "path": "src/gptty/io.py",
+          "bytes": 1038,
+          "sha256": "946a17d63a011aa7d816d04d1abd370a27d1dc5ec2af3fbcf2ed7e57dee68022",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/io.py"
+        },
+        {
+          "path": "src/gptty/cli.py",
+          "bytes": 16373,
+          "sha256": "dcefd535fac829765035fdc77d4a8a4acf1206ed7407669f5cc869ff71081a53",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/cli.py"
+        },
+        {
+          "path": "src/gptty/runs.py",
+          "bytes": 6817,
+          "sha256": "d9d3e89a907b5d29fa6f43249ab99ba913692e74a7eb2e30401eba04fd0cea58",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/runs.py"
+        },
+        {
+          "path": "src/gptty/media.py",
+          "bytes": 1173,
+          "sha256": "c3d957806a9371ca898f98a001a3d9f5c64f7352c5f4a2666e73cc88ebe91053",
+          "source": "https://github.com/kymuco/gptty/blob/93288f88ffbacf304f5bd161030e79fbf2ca486c/src/gptty/media.py"
+        }
+      ]
+    },
+    {
+      "repository": "stufently/gpt-web-gateway",
+      "commit": "d96998bd28482d0d359d7fd75a6e878e504162d7",
+      "primary_inspected_path": "src/chatgpt.js",
+      "license_metadata": "MIT",
+      "fetched_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1066,
+          "sha256": "fb8e8916eefded94cb63438eb9d496132a0afc2ac9efb24d2644166efc37bd2f",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "bytes": 33300,
+          "sha256": "8e0b49276818bf05e0eca44fa85679c5874766592667f0f1d18dddacb3b0a2d2",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 1455,
+          "sha256": "afceab78b9d6aee054ee2cf67b88e33e107d04ed6c3b8db53abeac9f7fc07ac7",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/package.json"
+        },
+        {
+          "path": "src/server.js",
+          "bytes": 4508,
+          "sha256": "0bfd13bfcb7c25ce07994f6e6c354e3828ed9db53df20d54a911a594116dcd38",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/server.js"
+        },
+        {
+          "path": "src/browser.js",
+          "bytes": 22571,
+          "sha256": "d44ffa8d64c6036a9ff5b25dee71a9078ce2050bab815fd0eb1bbed25f74c1c4",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/browser.js"
+        },
+        {
+          "path": "src/browser-fingerprint.js",
+          "bytes": 14927,
+          "sha256": "a37b2b5d9f97bc2591adb32c80c9d914187a9ddd4c2508d53b5a8abcd9ad7fdc",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/browser-fingerprint.js"
+        },
+        {
+          "path": "clients/chatgpt-web-skill/generate.sh",
+          "bytes": 12294,
+          "sha256": "ef65962657fb7b51556adaa12d745ffc086050184ceaf9e4c67b27cf7fea124c",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/clients/chatgpt-web-skill/generate.sh"
+        },
+        {
+          "path": "src/auth.js",
+          "bytes": 1904,
+          "sha256": "5d793567e957b48135f87b51dc8f35a34816ca28cedf65846303f09e1d0d2c10",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/auth.js"
+        },
+        {
+          "path": "src/login.js",
+          "bytes": 2883,
+          "sha256": "41b09753fab309d0c06205098c676fd09e5cb9b71899e3734ad63cb0b1657407",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/login.js"
+        },
+        {
+          "path": "src/pacer.js",
+          "bytes": 6657,
+          "sha256": "c5d46d18b0f3fc19c939030db13ea62ea05eb4a2b21b514316f896cafdc1d385",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/pacer.js"
+        },
+        {
+          "path": "src/chatgpt.js",
+          "bytes": 216917,
+          "sha256": "416d30b25964e1d1bd5c460939bd658fadac98bbfe2a20d4782d82859908f3d2",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/chatgpt.js"
+        },
+        {
+          "path": "src/routes/images.js",
+          "bytes": 47465,
+          "sha256": "b225ef90e776d9dd313788e0c7a237f80ac9478b39fdc9e8a17b4b851424d49f",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/routes/images.js"
+        },
+        {
+          "path": "src/session-health.js",
+          "bytes": 8800,
+          "sha256": "15af805b50919a123633d21e1a127d4495647206a8b6c6371bc513614385b434",
+          "source": "https://github.com/stufently/gpt-web-gateway/blob/d96998bd28482d0d359d7fd75a6e878e504162d7/src/session-health.js"
+        }
+      ]
+    }
+  ],
+  "gist": {
+    "repository": "intellectronica/40d99adce3f6923fb875c0d39e810e0d",
+    "commit": "71c4df61a30664c4b019aee6ded3c3044e3af4f3",
+    "type": "gist",
+    "files": [
+      {
+        "path": "0.README.md",
+        "bytes": 1060,
+        "sha256": "5926a89f9cb017d60fe2b1af083d5f3c8fafdc8916567ea58d518f0fcfc997f3",
+        "source": "https://gist.githubusercontent.com/intellectronica/40d99adce3f6923fb875c0d39e810e0d/raw/71c4df61a30664c4b019aee6ded3c3044e3af4f3/0.README.md"
+      },
+      {
+        "path": "generate_image.py",
+        "bytes": 8717,
+        "sha256": "21b4765a784b9db3da25333a2a7c7910cbb189c352cd9747c5e72177d37b3f9f",
+        "source": "https://gist.githubusercontent.com/intellectronica/40d99adce3f6923fb875c0d39e810e0d/raw/71c4df61a30664c4b019aee6ded3c3044e3af4f3/generate_image.py"
+      },
+      {
+        "path": "SKILL.md",
+        "bytes": 6195,
+        "sha256": "2ecac669f8a664532b4debade15b9470095fb15443b3ec7fc10e06d3e5762db0",
+        "source": "https://gist.githubusercontent.com/intellectronica/40d99adce3f6923fb875c0d39e810e0d/raw/71c4df61a30664c4b019aee6ded3c3044e3af4f3/SKILL.md"
+      }
+    ]
+  },
+  "topic_pages": [
+    {
+      "url": "https://github.com/topics/chatgpt-clone",
+      "scope": "initial rendered topic page; discovery only"
+    },
+    {
+      "url": "https://github.com/topics/no-api-key",
+      "scope": "initial rendered topic page; discovery only"
+    }
+  ],
+  "offline_donor_check": {
+    "repository": "Vieeeeeee/gpt-web-image",
+    "commit": "99ebf632bcf4fc1fe9c3a67bc0fafae469ca36cd",
+    "function": "sendWithEnter",
+    "fixture": "unchanged enabled draft with delayed UI acknowledgement; waits mocked",
+    "enter_presses": 2,
+    "reported_dispatch": "UNKNOWN",
+    "provider_calls": 0
+  }
+}

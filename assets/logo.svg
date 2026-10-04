@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="ihav-web-imagen">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#18c7ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="24" width="112" height="112" rx="26" fill="url(#g)"/>
+  <path d="M42 108 L62 56 l10 24 l12 -16 l14 44 Z" fill="#fff" fill-opacity=".92"/>
+  <circle cx="92" cy="52" r="9" fill="#fff"/>
+  <text x="148" y="94" font-family="-apple-system, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="currentColor">ihav-web-imagen</text>
+  <text x="150" y="124" font-family="-apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" fill="#8b93a7">one line · one request · never twice</text>
+</svg>

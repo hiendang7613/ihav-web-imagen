@@ -1,0 +1,20 @@
+{
+  "name": "ihav-web-imagen",
+  "interface": {
+    "displayName": "I Have Web Imagen"
+  },
+  "plugins": [
+    {
+      "name": "ihav-web-imagen",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ihav-web-imagen"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

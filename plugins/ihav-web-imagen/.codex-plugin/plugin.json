@@ -1,0 +1,36 @@
+{
+  "name": "ihav-web-imagen",
+  "version": "0.2.0",
+  "description": "Draw with the ChatGPT account you already have: one line, no API key, at most one request per run, original file saved.",
+  "author": {
+    "name": "hiendang7613"
+  },
+  "license": "MIT",
+  "keywords": [
+    "image-generation",
+    "chatgpt",
+    "skill",
+    "no-api-key",
+    "headless"
+  ],
+  "skills": "./core/",
+  "interface": {
+    "displayName": "I Have Web Imagen",
+    "shortDescription": "Draw with your own ChatGPT account, one request per run",
+    "longDescription": "Turns one line into one image through your signed-in ChatGPT account: a headless browser drives the normal ChatGPT Images page, sends at most one request, and saves the original file. Unofficial; no API key.",
+    "developerName": "hiendang7613",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/hiendang7613/ihav-web-imagen",
+    "defaultPrompt": [
+      "Draw a red fox in the snow with ihav-web-imagen.",
+      "Use ihav-web-imagen to edit this image: same pose, watercolor palette.",
+      "Set up ihav-web-imagen on this machine."
+    ]
+  },
+  "homepage": "https://github.com/hiendang7613/ihav-web-imagen",
+  "repository": "https://github.com/hiendang7613/ihav-web-imagen"
+}

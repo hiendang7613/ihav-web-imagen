@@ -1,0 +1,24 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  portable:
+    # What runs without the browser runtime: manifests, links, wrapper templates, installers and runtime.py.
+    # The full skill suite needs `runtime.py setup` (a Chromium download), so it runs locally before a release.
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: validate package (names, manifests, links, private strings)
+        run: python scripts/validate_repo.py
+      - name: repository tests
+        run: python -m unittest discover -s tests -v
+      - name: runtime launcher tests (standard library only)
+        run: python -m unittest discover -s plugins/ihav-web-imagen/core/ihav-web-imagen/tests -p test_runtime.py -v

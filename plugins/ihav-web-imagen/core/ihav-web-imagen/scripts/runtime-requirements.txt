@@ -1,0 +1,5 @@
+# The browser runtime installed by `runtime.py setup` into its own venv. Pinned to the versions the tests and the
+# recorded real runs used; change them together and rerun the skill tests.
+cloakbrowser==0.3.32
+playwright==1.62.0
+pydantic==2.13.5

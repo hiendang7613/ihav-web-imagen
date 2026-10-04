@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" fill="none" role="img" aria-label="ihav-web-imagen: one line, one request, never re-sent">
+  <defs>
+    <linearGradient id="bg" x1="53" y1="10" x2="1145" y2="442" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111B37"/><stop offset=".53" stop-color="#201B4A"/><stop offset="1" stop-color="#3B1F58"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="748" y1="112" x2="1078" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9C8BFF"/><stop offset=".56" stop-color="#74D7D0"/><stop offset="1" stop-color="#F3B8A5"/>
+    </linearGradient>
+    <linearGradient id="card" x1="812" y1="130" x2="1058" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFAFF"/><stop offset="1" stop-color="#DDE5FA"/>
+    </linearGradient>
+    <filter id="glow" x="648" y="33" width="519" height="394"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="shadow" x="774" y="91" width="337" height="303" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#070A17" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="440" rx="28" fill="url(#bg)"/>
+  <circle cx="910" cy="224" r="176" fill="url(#accent)" opacity=".47" filter="url(#glow)"/>
+  <circle cx="1078" cy="86" r="78" fill="#8D81F5" opacity=".13"/>
+  <circle cx="739" cy="363" r="116" fill="#74D7D0" opacity=".10"/>
+  <path d="M0 352C186 297 294 402 476 353C620 314 681 272 801 309C926 347 1054 401 1200 326V440H0V352Z" fill="#080D21" opacity=".28"/>
+  <g opacity=".35" stroke="#C9D0FF">
+    <path d="M688 49h66M721 16v66"/><path d="M1086 325h46M1109 302v46"/>
+    <circle cx="745" cy="122" r="3" fill="#E6E5FF"/><circle cx="1118" cy="139" r="2.5" fill="#E6E5FF"/>
+    <circle cx="777" cy="276" r="2.5" fill="#E6E5FF"/>
+  </g>
+  <text x="84" y="94" fill="#AEB9F8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" letter-spacing="3.6">ONE LINE · ONE REQUEST</text>
+  <text x="80" y="174" fill="white" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="62" font-weight="780" letter-spacing="-2.2">ihav-web-imagen</text>
+  <text x="84" y="220" fill="#E3E5FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500">Draw with the ChatGPT account you already have.</text>
+  <text x="84" y="260" fill="#C4CBE8" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18">Codex + Claude Code · no API key · never re-sends</text>
+  <g transform="translate(84 306)">
+    <rect width="131" height="42" rx="21" fill="#FFFFFF" fill-opacity=".10" stroke="#D7D9FF" stroke-opacity=".22"/>
+    <text x="21" y="27" fill="#F1F1FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650">One line</text>
+    <rect x="144" width="140" height="42" rx="21" fill="#FFFFFF" fill-opacity=".10" stroke="#D7D9FF" stroke-opacity=".22"/>
+    <text x="164" y="27" fill="#F1F1FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650">One request</text>
+    <rect x="297" width="121" height="42" rx="21" fill="#FFFFFF" fill-opacity=".10" stroke="#D7D9FF" stroke-opacity=".22"/>
+    <text x="317" y="27" fill="#F1F1FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650">Never re-sent</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="817" y="126" width="248" height="205" rx="20" fill="url(#card)"/>
+    <path d="M817 145a19 19 0 0 1 19-19h210a19 19 0 0 1 19 19v20H817v-20Z" fill="#F7F6FF"/>
+    <circle cx="839" cy="145" r="4" fill="#FF938E"/><circle cx="853" cy="145" r="4" fill="#F6C46C"/><circle cx="867" cy="145" r="4" fill="#72CFA8"/>
+    <rect x="834" y="180" width="214" height="133" rx="13" fill="url(#accent)"/>
+    <circle cx="982" cy="205" r="34" fill="#FFF8D5" opacity=".88"/>
+    <path d="M846 291c28-39 49-58 75-58 20 0 35 14 50 34 13 18 25 24 46 24h31v22H846v-22Z" fill="#364978" opacity=".76"/>
+    <path d="M855 280c19-16 31-22 45-22 19 0 31 11 45 24 10 10 21 13 41 13h62v18H855v-33Z" fill="#E7B5AE" opacity=".92"/>
+    <path d="M910 286c10-25 25-38 44-38 20 0 34 16 43 38" stroke="#E8FAE9" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+  </g>
+  <g transform="translate(752 184)">
+    <rect width="112" height="45" rx="15" fill="#161A39" stroke="#B8AFFE" stroke-opacity=".7"/>
+    <circle cx="23" cy="22.5" r="7" fill="#90E2D5"/>
+    <text x="39" y="28" fill="#F5F3FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650">Codex</text>
+  </g>
+  <g transform="translate(1001 324)">
+    <rect width="144" height="45" rx="15" fill="#161A39" stroke="#FFBEA6" stroke-opacity=".65"/>
+    <circle cx="23" cy="22.5" r="7" fill="#FFBEA6"/>
+    <text x="39" y="28" fill="#F5F3FF" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="650">Claude Code</text>
+  </g>
+  <text x="84" y="403" fill="#AEB9D9" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13">Unofficial · uses your own signed-in ChatGPT · v0.2 beta</text>
+</svg>

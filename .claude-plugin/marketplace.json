@@ -1,0 +1,18 @@
+{
+  "name": "ihav-web-imagen",
+  "owner": {
+    "name": "hiendang7613",
+    "url": "https://github.com/hiendang7613"
+  },
+  "description": "ihav-web-imagen: draw with your own ChatGPT account from Claude Code and Codex.",
+  "plugins": [
+    {
+      "name": "ihav-web-imagen",
+      "source": "./plugins/ihav-web-imagen",
+      "description": "One-line image generation through your signed-in ChatGPT account (no API key, at most one request per run).",
+      "category": "productivity",
+      "homepage": "https://github.com/hiendang7613/ihav-web-imagen"
+    }
+  ],
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json"
+}

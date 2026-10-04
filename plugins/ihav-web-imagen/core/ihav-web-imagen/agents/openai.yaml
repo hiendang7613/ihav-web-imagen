@@ -1,0 +1,6 @@
+interface:
+  display_name: "ihav-web-imagen"
+  short_description: "Draw one image with your own ChatGPT account"
+  default_prompt: "Use $ihav-web-imagen to draw one image from a one-line description, once."
+policy:
+  allow_implicit_invocation: false
