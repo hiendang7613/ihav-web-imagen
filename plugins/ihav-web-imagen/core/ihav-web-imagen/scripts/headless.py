@@ -523,6 +523,22 @@ async def library_page(browser):
     return page
 
 
+# Since 2026-10-04 the image tool is an inline pill inside the editor; its label is not part of the user's draft.
+COMPOSER_TEXT = r'''e=>{const c=e.cloneNode(true);const pill=!!e.querySelector('[data-system-hint-type^="picture"]');
+  c.querySelectorAll('[data-inline-selection-pill]').forEach(x=>x.remove());return {text:c.innerText,image_pill:pill}}'''
+
+
+async def composer_text(editor):
+    """(the user's draft without tool pills, whether the image-tool pill is present)."""
+    try:
+        value = await editor.evaluate(COMPOSER_TEXT)
+    except TypeError:                     # an editor double without evaluate (offline tests): fall back to its text
+        value = None
+    if isinstance(value, dict):
+        return value['text'], bool(value['image_pill'])
+    return await editor.inner_text(), False
+
+
 async def composer_state(page):
     editor = await required(page.locator(EDITOR), 'composer_unavailable', timeout=60)
     scope = editor.locator('xpath=ancestor::form[1]')
@@ -535,11 +551,11 @@ async def composer_state(page):
       images:[...e.querySelectorAll('img')].filter(e=>e.getClientRects().length).map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height,alt:e.alt})),
       remove_labels:[...e.querySelectorAll('button')].map(e=>e.getAttribute('aria-label')||'').filter(e=>e!=='Remove Create image'&&/remove|attachment|uploading/i.test(e))
     })''')
-    draft = await editor.inner_text()
+    draft, image_pill = await composer_text(editor)
     chat = await required(page.get_by_role('button', name='Chat', exact=True), 'chat_mode_unverified')
     if await chat.get_attribute('aria-pressed') != 'true':
         raise ResearchError('chat_mode_unverified', 'Chat mode is not selected')
-    if not re.search(r'\bCreate image\b', inventory['text']):
+    if not image_pill and not re.search(r'\bCreate image\b', inventory['text']):
         raise ResearchError('image_mode_unverified', 'The current composer does not show Create image')
     if any(i['width']>=48 and i['height']>=48 for i in inventory['images']) or inventory['remove_labels']:
         raise ResearchError('unexpected_attachment', 'Existing composer attachments were preserved')
@@ -637,10 +653,20 @@ async def submit_once(page, editor, scope, receipt, *, browser=None, stop=None):
     if receipt.data['send_state'] != 'not_sent':
         raise ResearchError('resend_forbidden', 'An existing submission intent must be reconciled')
     prompt = receipt.data['prompt']
-    await editor.fill(prompt)
+    _, image_pill = await composer_text(editor)
+    if image_pill:
+        # fill() would replace the editor's content, pill included, and turn the request into an ordinary chat.
+        await editor.click()
+        await page.keyboard.press('End')
+        await page.keyboard.insert_text(prompt)
+    else:
+        await editor.fill(prompt)
     # Line breaks and indentation are re-flowed by the editor; the words must match exactly.
-    if norm(await editor.inner_text()) != norm(prompt):
+    typed, still_image = await composer_text(editor)
+    if norm(typed) != norm(prompt):
         raise ResearchError('draft_mismatch', 'The editor did not accept the exact prompt')
+    if image_pill and not still_image:
+        raise ResearchError('image_mode_unverified', 'Typing the prompt removed the Create image tool')
     mark(receipt, 'prompt_inserted')
     attachments = receipt.data.get('attachments', [])
     if browser is not None:

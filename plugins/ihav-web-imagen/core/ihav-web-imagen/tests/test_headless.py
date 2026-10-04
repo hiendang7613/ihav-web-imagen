@@ -23,6 +23,7 @@ class SubmissionTests(unittest.IsolatedAsyncioTestCase):
         self.editor = MagicMock()
         self.editor.fill = AsyncMock()
         self.editor.inner_text = AsyncMock(return_value='Create one square blue vase.')
+        self.editor.evaluate = AsyncMock(side_effect=lambda *_: {'text': self.editor.inner_text.return_value, 'image_pill': False})
         self.scope = MagicMock()
         self.send = MagicMock()
         self.send.is_enabled = AsyncMock(return_value=True)
@@ -358,6 +359,38 @@ for(const option of menu.querySelectorAll('[role="menuitem"]')) option.onclick=(
                 self.fail('must not enter without a unique Instant option')
         self.assertEqual(error.exception.code,'effort_option_unverified')
         self.assertEqual(await self.page.locator(headless.EFFORT_CHIP).inner_text(),'Medium')
+
+
+class ImagePillTests(unittest.IsolatedAsyncioTestCase):
+    """2026-10-04 UI: the Create image tool is a pill inside the editor (data-system-hint-type="picture_v2")."""
+
+    async def test_the_prompt_is_typed_after_the_pill_and_never_replaces_it(self):
+        receipt = headless.Receipt(Path(tempfile.mkdtemp()) / 'run/receipt.json')
+        receipt.create('pill-run', 'a red fox')
+        state = {'text': '', 'image_pill': True}
+        editor = MagicMock(fill=AsyncMock(side_effect=AssertionError('fill would delete the pill')), click=AsyncMock(),
+                           evaluate=AsyncMock(side_effect=lambda *_: dict(state)))
+        page = MagicMock(url='https://chatgpt.com/')
+        page.keyboard.press = AsyncMock()
+        page.keyboard.insert_text = AsyncMock(side_effect=lambda text: state.update(text=text))
+        send = MagicMock(is_enabled=AsyncMock(return_value=True), get_attribute=AsyncMock(return_value='false'), click=AsyncMock())
+        with patch.object(headless, 'required', AsyncMock(return_value=send)):
+            await headless.submit_once(page, editor, MagicMock(), receipt)
+        page.keyboard.insert_text.assert_awaited_once_with('a red fox')
+        send.click.assert_awaited_once()
+
+    async def test_losing_the_pill_while_typing_stops_before_the_intent(self):
+        receipt = headless.Receipt(Path(tempfile.mkdtemp()) / 'run/receipt.json')
+        receipt.create('pill-run', 'a red fox')
+        answers = iter([{'text': '', 'image_pill': True}, {'text': 'a red fox', 'image_pill': False}])
+        editor = MagicMock(click=AsyncMock(), evaluate=AsyncMock(side_effect=lambda *_: next(answers)))
+        page = MagicMock(url='https://chatgpt.com/')
+        page.keyboard.press = AsyncMock()
+        page.keyboard.insert_text = AsyncMock()
+        with self.assertRaises(headless.ResearchError) as error:
+            await headless.submit_once(page, editor, MagicMock(), receipt)
+        self.assertEqual(error.exception.code, 'image_mode_unverified')
+        self.assertEqual((receipt.data['send_state'], receipt.data.get('send_clicks', 0)), ('not_sent', 0))
 
 
 if __name__ == '__main__':
