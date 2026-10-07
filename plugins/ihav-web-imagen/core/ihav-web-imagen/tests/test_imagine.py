@@ -25,7 +25,7 @@ PIXEL = base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQV
 
 def run_main(argv):
     out, err = io.StringIO(), io.StringIO()
-    with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+    with patch.object(imagine, 'reexec_in_runtime'), contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
         code = imagine.main(argv)
     return code, out.getvalue(), err.getvalue()
 
@@ -94,6 +94,22 @@ class DryRunTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn('reference_image_invalid', out)
         self.assertIn('Nothing was sent', out)
+
+    def test_offline_dry_run_cannot_reexec_when_runtime_is_unavailable(self):
+        interpreter = self.root / 'fixture-python'
+        interpreter.touch()
+        with patch.dict(sys.modules, {'cloakbrowser': None}), \
+             patch.object(imagine, 'VENV_PYTHON', interpreter), \
+             patch.dict(imagine.os.environ), \
+             patch.object(imagine.os, 'execv', side_effect=AssertionError('offline tests must not replace the process')) as reexec, \
+             patch.object(package_run, 'run_all', AsyncMock(side_effect=AssertionError('a dry run must not run anything'))) as run:
+            imagine.os.environ.pop('IMAGINE_REEXEC', None)
+            code, out, _ = run_main(['a fox', '--dry-run', '--out', str(self.root / 'out')])
+        self.assertEqual(code, 0)
+        self.assertIn('nothing was sent', out)
+        reexec.assert_not_called()
+        run.assert_not_awaited()
+        self.assertFalse((self.root / 'real-state').exists())
 
 
 class RunTests(unittest.TestCase):
@@ -176,14 +192,18 @@ class RunTests(unittest.TestCase):
 
 class RuntimeHandoverTests(unittest.TestCase):
     def test_a_system_python_hands_over_to_the_runtime_venv_once(self):
-        with patch.dict(sys.modules, {'cloakbrowser': None}), patch.object(imagine.os, 'execv') as execv, \
-             patch.dict(imagine.os.environ, {}, clear=False):
+        with tempfile.TemporaryDirectory() as fixture, \
+             patch.object(imagine, 'VENV_PYTHON', Path(fixture) / 'fixture-python'), \
+             patch.dict(sys.modules, {'cloakbrowser': None}), patch.object(imagine.os, 'execv') as execv, \
+             patch.dict(imagine.os.environ, {}, clear=False), patch.object(sys, 'argv', ['imagine.py', 'a fox', '--dry-run']):
+            imagine.VENV_PYTHON.touch()
             imagine.os.environ.pop('IMAGINE_REEXEC', None)
             execv.side_effect = RuntimeError('exec replaces the process: nothing after it runs')
             with self.assertRaises(RuntimeError):
                 imagine.reexec_in_runtime()
             command = execv.call_args.args[1]
             self.assertEqual((command[0], Path(command[1]).name), (str(imagine.VENV_PYTHON), 'imagine.py'))
+            self.assertEqual(command[2:], ['a fox', '--dry-run'])
             self.assertEqual(imagine.os.environ['IMAGINE_REEXEC'], '1')
             execv.reset_mock()
             with self.assertRaises(SystemExit) as error:                          # already handed over: no loop, a clear message
@@ -195,6 +215,25 @@ class RuntimeHandoverTests(unittest.TestCase):
         with patch.dict(sys.modules, {'cloakbrowser': object()}), patch.object(imagine.os, 'execv') as execv:
             imagine.reexec_in_runtime()
             execv.assert_not_called()
+
+    def test_explicit_main_arguments_survive_runtime_handoff(self):
+        with tempfile.TemporaryDirectory() as fixture:
+            interpreter = Path(fixture) / 'fixture-python'
+            interpreter.touch()
+            argv = ['a fox $5', '--dry-run', '--out', str(Path(fixture) / 'out')]
+            for arguments in (argv, iter(argv)):
+                with self.subTest(arguments=type(arguments).__name__), \
+                     patch.dict(sys.modules, {'cloakbrowser': None}), \
+                     patch.object(imagine, 'VENV_PYTHON', interpreter), \
+                     patch.object(sys, 'argv', ['unittest', 'test_imagine']), \
+                     patch.dict(imagine.os.environ), \
+                     patch.object(imagine.os, 'execv', side_effect=RuntimeError('fixture handoff intercepted')) as reexec:
+                    imagine.os.environ.pop('IMAGINE_REEXEC', None)
+                    with self.assertRaisesRegex(RuntimeError, 'fixture handoff intercepted'):
+                        imagine.main(arguments)
+                    command = reexec.call_args.args[1]
+                    self.assertEqual(command[2:], argv)
+                    self.assertEqual((command[0], Path(command[1]).name), (str(interpreter), 'imagine.py'))
 
 
 class SkillDocumentTests(unittest.TestCase):

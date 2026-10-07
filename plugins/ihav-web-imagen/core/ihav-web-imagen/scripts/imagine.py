@@ -39,7 +39,7 @@ BROWSER_KINDS = ('cloakbrowser', 'chrome')                      # the same list 
 EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp'}
 
 
-def reexec_in_runtime():
+def reexec_in_runtime(argv=None):
     """The browser runtime lives in the private venv `runtime.py setup` made; hand over to it once (no install here)."""
     try:
         import cloakbrowser  # noqa: F401
@@ -50,7 +50,8 @@ def reexec_in_runtime():
     # flag stops a loop if the venv itself lacks the runtime.
     if VENV_PYTHON.is_file() and not os.environ.get('IMAGINE_REEXEC'):
         os.environ['IMAGINE_REEXEC'] = '1'
-        os.execv(str(VENV_PYTHON), [str(VENV_PYTHON), str(Path(__file__).resolve()), *sys.argv[1:]])
+        arguments = sys.argv[1:] if argv is None else argv
+        os.execv(str(VENV_PYTHON), [str(VENV_PYTHON), str(Path(__file__).resolve()), *arguments])
     sys.exit(f'The browser runtime is not set up yet. Run once: {shlex.quote(sys.executable)} {shlex.quote(str(SKILL_SCRIPTS / "runtime.py"))} setup '
              '(then `runtime.py login` to sign in). Nothing was sent.')
 
@@ -167,8 +168,8 @@ class Progress:
         pass
 
 
-def run(args) -> int:
-    reexec_in_runtime()
+def run(args, *, argv=None) -> int:
+    reexec_in_runtime(argv)
     sys.path.insert(0, str(SKILL_SCRIPTS))
     import package_run
     from package_run import headless
@@ -219,10 +220,11 @@ def parser() -> argparse.ArgumentParser:
 
 
 def main(argv=None) -> int:
+    argv = None if argv is None else list(argv)
     args = parser().parse_args(argv)
     if not 0 < args.wait_seconds <= 1200:
         raise SystemExit('--wait-seconds must be between 0 and 1200')
-    return run(args)
+    return run(args, argv=argv)
 
 
 if __name__ == '__main__':

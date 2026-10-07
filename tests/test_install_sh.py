@@ -1,14 +1,15 @@
-"""install.sh end to end against throwaway homes. Real `claude` / `codex` installs run only where those CLIs exist (skipped in CI)."""
+"""install.sh against throwaway homes. Real host installs require IHAV_WEB_IMAGEN_HOST_TESTS=1 and an installed CLI."""
 import os
 import shutil
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'install.sh'
+HOST_TESTS_ENABLED = os.environ.get('IHAV_WEB_IMAGEN_HOST_TESTS') == '1' and bool(shutil.which('claude') or shutil.which('codex'))
+HOST_TESTS_REASON = 'set IHAV_WEB_IMAGEN_HOST_TESTS=1 with a Claude or Codex CLI to enable native installer tests'
 
 
 def run(home: Path, *, source=ROOT, path=None):
@@ -38,9 +39,10 @@ class InstallShTests(unittest.TestCase):
         fake_bin = self.home / 'bin'
         fake_bin.mkdir()
         log = self.home / 'calls.log'
-        fake_cli = fake_bin / 'claude'
-        fake_cli.write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$IHAV_WEB_IMAGEN_TEST_LOG"\n')
-        fake_cli.chmod(0o755)
+        for host in ('claude', 'codex'):
+            fake_cli = fake_bin / host
+            fake_cli.write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$IHAV_WEB_IMAGEN_TEST_LOG"\n')
+            fake_cli.chmod(0o755)
         spaced_checkout = self.home / 'checkout with spaces'
         spaced_checkout.mkdir()
         script = spaced_checkout / 'install.sh'
@@ -55,15 +57,16 @@ class InstallShTests(unittest.TestCase):
         self.assertTrue(calls[0].startswith(f'plugin marketplace add {spaced_checkout}'))
         self.assertTrue(any(call.startswith('plugin install ihav-web-imagen@ihav-web-imagen') for call in calls))
         self.assertTrue(any(call.startswith('plugin update ihav-web-imagen@ihav-web-imagen') for call in calls))   # an installed plugin keeps its cached version until updated
+        self.assertTrue(any(call.startswith('plugin add ihav-web-imagen@ihav-web-imagen') for call in calls))
 
     def test_without_a_host_cli_it_says_so_and_fails(self):
-        done = run(self.home, path='/usr/bin:/bin')
         if shutil.which('claude', path='/usr/bin:/bin') or shutil.which('codex', path='/usr/bin:/bin'):
             self.skipTest('a host CLI lives in a system directory here')
+        done = run(self.home, path='/usr/bin:/bin')
         self.assertEqual(done.returncode, 1)
         self.assertIn('Neither the claude nor the codex command was found', done.stdout)
 
-    @unittest.skipUnless(shutil.which('claude') or shutil.which('codex'), 'no host CLI installed')
+    @unittest.skipUnless(HOST_TESTS_ENABLED, HOST_TESTS_REASON)
     def test_install_and_reinstall_succeed_for_every_host_present(self):
         for attempt in ('first run', 're-run (update)'):
             done = run(self.home)
@@ -77,9 +80,10 @@ class InstallShTests(unittest.TestCase):
         fake_bin = self.home / 'bin'
         fake_bin.mkdir()
         log = self.home / 'calls.log'
-        cli = fake_bin / 'claude'
-        cli.write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$IHAV_WEB_IMAGEN_TEST_LOG"\n')
-        cli.chmod(0o755)
+        for host in ('claude', 'codex'):
+            cli = fake_bin / host
+            cli.write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$IHAV_WEB_IMAGEN_TEST_LOG"\n')
+            cli.chmod(0o755)
         downloads = self.home / 'Downloads'
         downloads.mkdir()
         shutil.copyfile(SCRIPT, downloads / 'install.sh')                      # no marketplace file beside it: not a checkout
@@ -88,8 +92,9 @@ class InstallShTests(unittest.TestCase):
         done = subprocess.run(['sh', str(downloads / 'install.sh')], cwd=self.home, env=env, capture_output=True, text=True, timeout=20)
         self.assertEqual(done.returncode, 0, done.stdout + done.stderr)
         self.assertEqual(log.read_text().splitlines()[0], 'plugin marketplace add hiendang7613/ihav-web-imagen')
+        self.assertIn('plugin add ihav-web-imagen@ihav-web-imagen', log.read_text().splitlines())
 
-    @unittest.skipUnless(shutil.which('claude') or shutil.which('codex'), 'no host CLI installed')
+    @unittest.skipUnless(HOST_TESTS_ENABLED, HOST_TESTS_REASON)
     def test_a_bad_source_fails_loudly_with_the_command_to_run_by_hand(self):
         done = run(self.home, source=Path('/nonexistent/ihav-web-imagen'))
         self.assertEqual(done.returncode, 1)

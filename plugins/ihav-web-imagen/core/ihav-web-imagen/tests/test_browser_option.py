@@ -7,6 +7,7 @@ any Send.
 """
 import argparse
 import asyncio
+import builtins
 import contextlib
 import io
 import json
@@ -242,6 +243,9 @@ class CommandLineTests(Workspace):
 class FrontDoorTests(Workspace):
     def setUp(self):
         super().setUp()
+        runtime = patch.object(imagine, 'reexec_in_runtime')
+        runtime.start()
+        self.addCleanup(runtime.stop)
         state = patch.object(headless, 'DEFAULT_STATE', self.root / 'state')
         state.start()
         self.addCleanup(state.stop)
@@ -265,6 +269,28 @@ class FrontDoorTests(Workspace):
         self.assertEqual(code, 0)
         self.assertIn('in chrome', out)
         self.assertIn('nothing was sent', out)
+
+    def test_offline_frontdoor_does_not_reexec_when_runtime_is_unavailable(self):
+        real_import = builtins.__import__
+
+        def missing_runtime(name, *args, **kwargs):
+            if name == 'cloakbrowser':
+                raise ImportError('fixture runtime unavailable')
+            return real_import(name, *args, **kwargs)
+
+        interpreter = self.root / 'fixture-python'
+        interpreter.touch()
+        with patch.object(builtins, '__import__', missing_runtime), \
+             patch.object(imagine, 'VENV_PYTHON', interpreter), \
+             patch.dict(os.environ), \
+             patch.object(os, 'execv', side_effect=AssertionError('offline tests must not replace the process')) as reexec, \
+             patch.object(package_run, 'run_all', AsyncMock(side_effect=AssertionError('a dry run must not run anything'))) as run:
+            os.environ.pop('IMAGINE_REEXEC', None)
+            code, out, _ = self.run_main(['a fox', '--dry-run', '--out', str(self.root / 'out')])
+        self.assertEqual(code, 0)
+        self.assertIn('nothing was sent', out)
+        reexec.assert_not_called()
+        run.assert_not_awaited()
 
     def test_a_missing_chrome_stops_before_a_dry_run_and_before_any_send(self):
         with patch.dict(os.environ, {'IHAV_WEB_IMAGEN_CHROME': str(self.root / 'nowhere')}), \
