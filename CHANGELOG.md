@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 (2026-10-08)
+
+- Fixed: the page survey's sign-in matcher now matches whole words, so a chat title such as "Designing best eval tool" no longer marks a signed-in page as signed out.
+- Fixed: when closing the browser also fails, the original error is still the one reported; the cleanup failure is added to its diagnostic. `headless.py login` prints any failure as JSON.
+- `runtime.py login --site all` (or `--site <id>`) opens one tab per known web chat in the CloakBrowser profile for manual sign-in. Kimi opens at www.kimi.ai.
+- `survey.py` records what each signed-in chat page offers (composer, buttons, file inputs, sign-in signs) into the state folder; `--diff` and `--diff-only` report what moved since the previous survey. It never types, clicks or sends.
+- Provider cards for nine web chats under `references/providers/`. Each starts as "Adapter: not built; live: unverified".
+- `gemini.py` (generate, resume, status) follows the same send-once receipt contract for Gemini. It is tested only against a scripted local page, has not run live, and the skill does not use it: ChatGPT is still the only adapter.
+- Developer checks: offline tests can no longer hand over to an installed runtime; the real Claude Code and Codex installer tests run only with `IHAV_WEB_IMAGEN_HOST_TESTS=1`; CI also checks the survey matcher in Node.js 24.
+- No new live image run for this release.
+
 ## 0.2.0 (2026-10-04)
 
 - Dedicated runtime for macOS and Linux, replacing the maintainer-specific environment with a vendored rendered-UI adapter.
@@ -12,7 +23,7 @@
 - One live run with this runtime on 2026-10-04 (macOS, maintainer's account): 1 Send, original saved by `resume`.
 - Updated runtime and security documentation. The earlier live examples do not verify fresh-machine v0.2.0 generation, Linux generation, or Chrome generation.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-10-01)
 
 - Plugin for Claude Code and Codex (one marketplace per host, `install.sh` for both).
 - `ihav-web-imagen` skill: one line in, one request through your signed-in ChatGPT account, the original file saved in the current directory

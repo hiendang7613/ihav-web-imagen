@@ -25,7 +25,7 @@
 </p>
 
 > [!IMPORTANT]
-> **Beta · v0.2.0.** A dedicated local runtime for macOS and Linux, with one-time setup and sign-in. Setup downloads dependencies and a browser; it sends no image request. Fresh-machine image generation is not yet verified.
+> **Beta · v0.3.0.** A dedicated local runtime for macOS and Linux, with one-time setup and sign-in. Setup downloads dependencies and a browser; it sends no image request. Fresh-machine image generation is not yet verified.
 >
 > **Unofficial.** Not affiliated with or endorsed by OpenAI or Anthropic. This plugin operates the rendered ChatGPT web UI with your signed-in account. That UI can change, image requests count against your plan, and automation may lead to account restrictions or suspension. See [Security](SECURITY.md) and [verified status](#status).
 
@@ -361,9 +361,15 @@ Locally, under the dedicated state directory: `~/Library/Application Support/iha
 
 Small plugins for Claude Code and Codex, each with a focused job:
 
+- [ihav](https://github.com/hiendang7613/ihav): the shared catalog, with install instructions for both hosts.
 - [ihav-asd-ste100](https://github.com/hiendang7613/ihav-asd-ste100): predictable, easy-to-scan agent replies.
 - [ihav-agent-room](https://github.com/hiendang7613/ihav-agent-room): a shared room for cooperating Claude Code and Codex sessions.
-- [ihav-marketplace](https://github.com/hiendang7613/ihav-marketplace): discover the family and its install instructions.
+- [ihav-leaderboards](https://github.com/hiendang7613/ihav-leaderboards): one quality-first leaderboard merged from the most-visited public ones.
+- [ihav-competitor-search](https://github.com/hiendang7613/ihav-competitor-search): a ranked competitor table with page-checked evidence.
+- [ihav-web-visit-counter](https://github.com/hiendang7613/ihav-web-visit-counter): estimated monthly visits of a website, with date and source.
+- [ihav-openrouter-pareto](https://github.com/hiendang7613/ihav-openrouter-pareto): OpenRouter models as quality or usage against price, with a Pareto frontier.
+- [ihav-auto-improve-system](https://github.com/hiendang7613/ihav-auto-improve-system): improve AI pipelines with recorded evidence and a keep, reject or inconclusive verdict.
+- ihav-web-chat (private for now): send one prompt to several signed-in web chatbots and save each answer.
 
 ## License
 

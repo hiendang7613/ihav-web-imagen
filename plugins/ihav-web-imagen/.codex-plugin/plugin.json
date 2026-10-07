@@ -1,6 +1,6 @@
 {
   "name": "ihav-web-imagen",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Draw with the ChatGPT account you already have: one line, no API key, at most one request per run, original file saved.",
   "author": {
     "name": "hiendang7613"
