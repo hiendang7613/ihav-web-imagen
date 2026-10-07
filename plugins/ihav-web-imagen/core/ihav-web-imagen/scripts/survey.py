@@ -48,7 +48,7 @@ INVENTORY = r'''() => {
             buttons: scope ? [...scope.querySelectorAll('button, [role="button"]')].filter(visible).slice(0, 60).map(describe) : [],
             file_inputs: scope ? [...scope.querySelectorAll('input[type="file"]')].map(describe) : []};
   });
-  const words = /(log ?in|sign ?in|sign ?up|continue with|verify you are human|captcha|cloudflare)/i;
+  const words = /\b(log ?in|sign ?in|sign ?up|continue with|verify you are human|captcha|cloudflare)\b/i;
   return {
     url: location.href, title: document.title,
     signin_signs: [...document.querySelectorAll('a, button')].filter(visible).map(text).filter(t => words.test(t)).slice(0, 20),

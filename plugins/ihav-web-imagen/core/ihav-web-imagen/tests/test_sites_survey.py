@@ -15,7 +15,9 @@ PAGE = '''<!doctype html><html><head><title>Fixture chat</title></head><body><ma
 <form><div contenteditable="true" role="textbox" aria-label="Ask anything"></div>
 <button aria-label="Add photos" data-testid="attach">+</button><input type="file" hidden>
 <button aria-label="Send" data-testid="send">Send</button></form>
-<a href="#">Log in</a></main></body></html>'''
+<a href="#">Log in</a><a href="#">Login</a><a href="#">Sign in</a>
+<a href="#">Sign up</a><a href="#">Continue with Google</a>
+<a href="#">Designing best eval tool</a><a href="#">Cataloging</a><a href="#">Assign input</a></main></body></html>'''
 
 
 class SiteTests(unittest.TestCase):
@@ -69,6 +71,8 @@ class SurveyTests(unittest.TestCase):
         self.assertFalse(record['sent'])
         self.assertTrue(results[0]['composer_found'])
         self.assertTrue(results[0]['looks_signed_out'])
+        self.assertEqual(record['inventory']['signin_signs'],
+                         ['Log in', 'Login', 'Sign in', 'Sign up', 'Continue with Google'])
         labels = [b['aria_label'] for b in record['inventory']['composers'][0]['buttons']]
         self.assertEqual(labels, ['Add photos', 'Send'])
         self.assertEqual(len(record['inventory']['composers'][0]['file_inputs']), 1)

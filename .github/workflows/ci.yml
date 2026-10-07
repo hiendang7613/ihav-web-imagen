@@ -4,7 +4,7 @@ permissions:
   contents: read
 jobs:
   portable:
-    # What runs without the browser runtime: manifests, links, wrapper templates, installers and runtime.py.
+    # No browser runtime: manifests, wrappers, installers, runtime.py and the survey matcher (Node).
     # The full skill suite needs `runtime.py setup` (a Chromium download), so it runs locally before a release.
     runs-on: ${{ matrix.os }}
     strategy:
@@ -16,6 +16,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
       - name: validate package (names, manifests, links, private strings)
         run: python scripts/validate_repo.py
       - name: repository tests
