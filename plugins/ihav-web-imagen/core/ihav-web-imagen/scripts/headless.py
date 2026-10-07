@@ -25,7 +25,7 @@ from chatgpt_web.browser import required
 from chatgpt_web.core import DEFAULT_STATE, ResearchError, atomic_write, json_bytes, load_config
 from chatgpt_web.host import profile_lock
 import sites
-from image_files import (BROWSER_KINDS, Browser, ChromeBrowser, DEFAULT_BROWSER, download_owned, remove_probe_attachments,
+from image_files import (BROWSER_KINDS, Browser, ChromeBrowser, DEFAULT_BROWSER, close_browser, download_owned, remove_probe_attachments,
                          snapshot_references, upload_references, validate_attachment_order,
                          validate_reference_paths)
 
@@ -446,17 +446,22 @@ def browser_for(args, receipt):
 async def chrome_session(state, *, accept_downloads=False):
     with chrome_lock(state):
         browser = ChromeBrowser(state, load_config(state))
+        primary_error = None
         try:
             await browser.start(headless=True, accept_downloads=accept_downloads)
             yield browser
+        except BaseException as exc:
+            primary_error = exc
+            raise
         finally:
-            await browser.close()
+            await close_browser(browser, primary_error)
 
 
 async def login_chrome(state):
     """Sign in to ChatGPT once in the Chrome profile: a visible window, closed by the user. Sends nothing."""
     with chrome_lock(state):
         browser = ChromeBrowser(state, load_config(state))
+        primary_error = None
         try:
             await browser.open_login_page()
             print(json.dumps({'login_window_open': True, 'browser': 'chrome',
@@ -464,8 +469,11 @@ async def login_chrome(state):
             await browser.wait_until_closed()
             return {'login_window_closed': True, 'browser': 'chrome', 'login_verified': False,
                     'next': 'a --dry-run does not check sign-in; the first real run stops before any Send if you are not signed in'}
+        except BaseException as exc:
+            primary_error = exc
+            raise
         finally:
-            await browser.close()
+            await close_browser(browser, primary_error)
 
 
 @asynccontextmanager
@@ -478,17 +486,22 @@ async def session(state, *, pause_idle_worker=False, accept_downloads=False, bro
         return
     with profile_lock(state):
         browser = Browser(state, load_config(state))
+        primary_error = None
         try:
             await browser.start(headless=True, accept_downloads=accept_downloads)
             yield browser
+        except BaseException as exc:
+            primary_error = exc
+            raise
         finally:
-            await browser.close()
+            await close_browser(browser, primary_error)
 
 
 async def login_cloak(state, urls=('https://chatgpt.com/',)):
     """Sign in once in the CloakBrowser profile: one visible window, one tab per site, closed by the user. Sends nothing."""
     with profile_lock(state):
         browser = Browser(state, load_config(state))
+        primary_error = None
         try:
             await browser.start(headless=False)
             for url in urls:
@@ -504,8 +517,11 @@ async def login_cloak(state, urls=('https://chatgpt.com/',)):
                 await asyncio.sleep(1)
             return {'login_window_closed': True, 'browser': 'cloakbrowser', 'tabs': list(urls), 'login_verified': False,
                     'next': 'a --dry-run does not check sign-in; the first real run stops before any Send if you are not signed in'}
+        except BaseException as exc:
+            primary_error = exc
+            raise
         finally:
-            await browser.close()
+            await close_browser(browser, primary_error)
 
 
 # The Images library's new-image control: "New" until 2026-10, "Create image" in the 2026-10-04 survey.
@@ -1027,8 +1043,11 @@ def main():
                 result = asyncio.run(login_cloak(args.state_dir, chosen))
             print(json.dumps(result, indent=2))
             return 0
-        except ResearchError as exc:
-            print(json.dumps({'error': exc.code, 'error_kind': classify_error(exc.code)}))
+        except Exception as exc:
+            code = exc.code if isinstance(exc, ResearchError) else type(exc).__name__
+            diagnostic = getattr(exc, 'diagnostic', None)
+            print(json.dumps({'error': code, 'error_kind': classify_error(code),
+                              **({'diagnostic': diagnostic} if diagnostic else {})}))
             return 2
     if args.command == 'probe':
         return run_command(args)

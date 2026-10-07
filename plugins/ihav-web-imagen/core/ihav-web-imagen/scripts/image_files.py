@@ -41,6 +41,21 @@ def chrome_binary():
     return None
 
 
+async def close_browser(browser, primary_error):
+    """Keep the operation outcome and expose a secondary cleanup failure."""
+    try:
+        await browser.close()
+    except Exception as cleanup:
+        if primary_error is None:
+            raise
+        error_code = getattr(cleanup, 'code', type(cleanup).__name__)
+        existing = getattr(primary_error, 'diagnostic', None)
+        diagnostic = dict(existing) if isinstance(existing, dict) else ({} if existing is None else {'operation': existing})
+        diagnostic['browser_cleanup'] = {'state': 'failed', 'error': error_code}
+        primary_error.diagnostic = diagnostic
+        primary_error.add_note(f'browser_cleanup_failed: {error_code}')
+
+
 async def start_playwright():
     from playwright.async_api import async_playwright
     return await async_playwright().start()
@@ -211,8 +226,8 @@ class ChromeBrowser(Browser):
             self.context = await self.playwright.chromium.launch_persistent_context(
                 user_data_dir=str(profile), executable_path=str(binary), headless=True if headless is None else headless,
                 viewport={'width': 1440, 'height': 1100}, accept_downloads=accept_downloads)
-        except BaseException:
-            await self.close()
+        except BaseException as exc:
+            await close_browser(self, exc)
             raise
         self.context.set_default_timeout(8000)
         self.context.set_default_navigation_timeout(45000)
